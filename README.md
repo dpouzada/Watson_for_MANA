@@ -18,3 +18,29 @@ Solution: Watson Artificial Intelligence processing power can dramatically reduc
 
 # How to use the code to create your own “Watson for good” use cases
 
+First and foremost you will need instances of several Watson modules.
+
+Those can all be created entirely FOR FREE on IBM Cloud, giving you access (for free again) for each module to about 10 000 API calls to experiment by yourself, build your own POCs and demos.
+
+# Watson Natural Language Understanding
+
+Allows you to extract Metadata (structured data) from an unstructured text: 
+- Sentiment, Emotion
+- Keywords
+- Entities
+- Categories, Concepts
+- Syntax
+- Semantic Roles
+
+#Watson Assistant
+
+General intro of what it's capable of and what you can do with it
+
+I encourage you to learn how to design your own assistant with ... tutorial
+
+For this project I invite you to import as a starting point the skill MANA_orchestrator.json. It has the right dialog structure, intent and entities definition and it was already trained with about 300 examples per intent. 
+You are evidently welcome to make your own modifications to it.
+
+# Watson Natural Language Classifier
+
+
