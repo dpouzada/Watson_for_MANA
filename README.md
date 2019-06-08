@@ -26,7 +26,17 @@ Solution: Watson Artificial Intelligence processing power can dramatically reduc
 
 # A very general classification problem
 
-In practice, this is all 
+In practice this amounts to a very typical classification task.
+
+Image
+
+Now, the requirements of the solution to be designed were:
+- As user friendly and transparent as possible insofar as MANA staff is non technical and not comfortable with looking at the code to understand its behaviour, make adaptations or tuning parameters by investigating themselves the output. 
+- Highly customizable and monitorable. The aim was to be able to have levers instead of a pure black box model which would work very well only for articles on a specific topic dealt with in the training datasets but not able to adapt when tackling new topics.
+
+To answer with anticipation, the final solution implemented: 
+1) explicitly displays on the screen every single major processing done for the user to be able to understand/follow it
+2) The final architecture keeps best flexibility possible by optimizing the trade off between the speed of learning and the scaling power of the pure ML approach
 
 # How to use the code to create your own “Watson for good” use cases
 
