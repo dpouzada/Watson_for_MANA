@@ -77,7 +77,7 @@ I encourage you to learn how to design your own assistant with ... tutorial
 
 ## How to create your own Watson Assistant instance
 
-Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant and save your credentials (URL and API Key).
+Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and save your credentials: URL and API Key.
 
 Then click on launch Watson Assistant, then on the tab "Skills".
 I invite you then to click on "create skill" and then "import skill".
@@ -87,5 +87,19 @@ You are evidently welcome to make your own modifications to it.
 
 # Watson Natural Language Classifier
 
-Exactly same process as above, create from the catalog your instance and save your credentials.
+What is it ?
 
+Exactly same process as above, create from the catalog your instance (in Frankfurt in my case) and save your credentials.
+
+# Watson Translator
+
+No need to explain hopefully what the translator does. We will need it to treat articles from 80 languages for MANA ! 
+Just create an instance and save your credentials, same process.
+
+# Insert your credentials at the beginning of the script 
+
+# Where to run the script
+
+As I will explain below, I suggest you start by running this script locally. This will be easier and allow to assess the performance of the solution by yourself.
+
+Once you understand how the script works and trust its performance, I will explain to you how to run a much more compact version directly on IBM Cloud, through what is called a "Cloud function". This is what MANA Vox is currently doing.
