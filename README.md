@@ -1,8 +1,8 @@
-This is a detailed step by step tutorial to invite you to run by yourself Watson for MANA script. No prior knowledge at all is expected. It is meant to be doable by anyone and is fully self explanatory, following the same pedagogical principle than for instance OpenClassrooms courses.
+This is a detailed step by step tutorial to invite you to run by yourself Watson for MANA script. No prior knowledge at all is expected. It is meant to be achievable by anyone and is fully self explanatory, following the same pedagogical principle than for instance OpenClassrooms courses.
 
 Menu
 
-# Watson_for_MANA
+# A little introduction to Watson for MANA
 
 Watson AI modules help MANA process thousands of articles to track environmental impact. 
 The specific architecture of this solution make the best use of several Watson modules to achieve an optimized result.
