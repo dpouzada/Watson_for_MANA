@@ -111,11 +111,16 @@ Once you understand how the script works and trust its performance, I will expla
 ## How to run the script locally on your machine
 
 1) Install a Python interpreter if not already the case (Anaconda will do great, and includes the Spyder IDE which comes handy)
-2) Install Watson packages by running on the terminal: pip install --upgrade "watson-developer-cloud>=2.5.1"
+2) Install Watson packages by running on the terminal (command line called cmd on Windows): pip install --upgrade "watson-developer-cloud>=2.5.1"
 3) Save the scripts on a folder, along with the excel file containing the articles to be treated.
 4) On the terminal run the script with the command:
-python script_name
-5) In case you want to stop the script before the end of its execution, type Ctrl+C on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files OuiMANA and NonMANA.
+On Linux and MacOS: python script_name
+On Windows: py script_name
+5) In case you want to stop the script before the end of its execution, type Ctrl+C as the scrit is running on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files OuiMANA and NonMANA.
+
+# Follow the execution
+
+A great care was taken such that all 
 
 # How to adapt the script to create your own “Watson for good” use cases
 
