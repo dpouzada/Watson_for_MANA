@@ -42,7 +42,7 @@ To answer with anticipation, the final solution implemented:
 1) explicitly displays on the screen every single major processing done for the user to be able to understand/follow it
 2) The final architecture keeps best flexibility possible by optimizing the trade off between the speed of learning and the scaling power of the pure ML approach
 
-# How to use the code to create your own “Watson for good” use cases
+# Step by step guide to run the script
 
 First and foremost you will need to instantiate several Watson modules.
 
@@ -102,8 +102,30 @@ Just create an instance and save your credentials, same process.
 
 # Insert your credentials at the beginning of the script 
 
-# Where to run the script
+# How to run the script
 
 As I will explain below, I suggest you start by running this script locally. This will be easier and allow to assess the performance of the solution by yourself.
 
 Once you understand how the script works and trust its performance, I will explain to you how to run a much more compact version directly on IBM Cloud, through what is called a "Cloud function". This is what MANA Vox is currently doing.
+
+## How to run the script locally on your machine
+
+1) Install a Python interpreter if not already the case (Anaconda will do great, and includes the Spyder IDE which comes handy)
+2) Install Watson packages by running on the terminal: pip install --upgrade "watson-developer-cloud>=2.5.1"
+3) Save the scripts on a folder, along with the excel file containing the articles to be treated.
+4) On the terminal run the script with the command:
+python script_name
+5) If you want to stop the script in the 
+-Installer Anaconda (qui contient notamment l'interpréteur Python, et l'éditeur de code Spyder)
+-Installer les packages Watson en écrivant en ligne de commande (depuis ton répertoire home ça avait marché pour toi hier, i.e. quand tu ouvres le terminal tu écris "cd" et tu seras dans le répertoire home): pip install --upgrade "watson-developer-cloud>=2.5.1"
+- Sauver le script et les fichiers excel à traiter dans le même répertoire (Documents par exemple)
+- Lancer le script par la commande: python <nom_du_script>
+- Arrêter l'éxecution si voulu par Ctrl+C
+- Si tu veux voir les variables, ouvrir Spyder dans Anaconda navigator, et ouvrir le script depuis spyder. En cliquant sur la flèche verte "RUN", ça revient à faire tourner dans le terminal, avec le gros avantage de pouvoir visualiser le contenu des variables créées par le script. Donc pour débugger, ou comprendre comment le script fonctionne, c'est le plus pratique.
+
+# How to adapt the script to create your own “Watson for good” use cases
+
+# Acknowledgments
+
+On IBM side, thanks to Ramzi ben Ouagram and Vincent Perrin for allowing the project to develop. Thanks to Alexandre Berthet who supported actively the practical implementation for MANA of this solution, and is working on the improvement to bring it to next level.
+On MANA side, thanks to Gabrielle Garmier and Capucine Lebois for their energy and pedagogy in co-desigining this solution together.
