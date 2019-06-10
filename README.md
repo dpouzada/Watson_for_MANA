@@ -43,6 +43,14 @@ To answer with anticipation, the final solution implemented:
 1) explicitly displays on the screen every single major processing done for the user to be able to understand/follow it
 2) The final architecture keeps best flexibility possible by optimizing the trade off between the speed of learning and the scaling power of the pure ML approach
 
+# What is the solution ?
+
+Please look at the Power Point to better understand the underlying justification for this final solution. It details the genesis of the reasoning, ideation process and trials that allowed to eventually settle after several adjustments to reach that final architecture.
+
+### Preamble
+
+If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module, or the following sections which explain what each module is capable of doing, before guiding you practically to create your own instances to be ble to run the script.
+
 # Step by step guide to run the script
 
 First and foremost you will need to instantiate several Watson modules.
