@@ -40,13 +40,17 @@ To answer with anticipation, the final solution implemented:
 
 # How to use the code to create your own “Watson for good” use cases
 
-First and foremost you will need instances of several Watson modules.
+First and foremost you will need to instantiate several Watson modules.
 
-Those can all be created entirely FOR FREE on IBM Cloud, giving you access (for free again) for each module to about 10 000 API calls to experiment by yourself, build your own POCs and demos.
+Those instances can all be created entirely FOR FREE on IBM Cloud, giving you access for each module to about free 10 000 API calls to experiment by yourself, build your own POCs and demos.
+
+# First step : Create your IBM Cloud account for free
+
+
 
 # Watson Natural Language Understanding
 
-Allows you to extract Metadata (structured data) from an unstructured text: 
+In short, this module allows you to extract Metadata (structured data) from an unstructured text: 
 - Sentiment, Emotion
 - Keywords
 - Entities
@@ -54,15 +58,34 @@ Allows you to extract Metadata (structured data) from an unstructured text:
 - Syntax
 - Semantic Roles
 
+Please consult the demo page to visualise by yourself what Watson NLU is capable of doing.
+
+## How to create your own Watson NLU instance
+
+Once you are logged in your IBM account, click on "Catalog" and the "AI section".
+Scroll down to Naural Language Understanding and, after having set the region to deploy your service (Frankfurt in my case) you click on Create.
+
+(Pictures here)
+
+Now that you just created your instance, click on Manage and copy the API Key and URL, as you will need to insert them later in the script.
+
 # Watson Assistant
 
 General intro of what it's capable of and what you can do with it
 
 I encourage you to learn how to design your own assistant with ... tutorial
 
+## How to create your own Watson Assistant instance
+
+Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant and save your credentials (URL and API Key).
+
+Then click on launch Watson Assistant, then on the tab "Skills".
+I invite you then to click on "create skill" and then "import skill".
+
 For this project I invite you to import as a starting point the skill MANA_orchestrator.json. It has the right dialog structure, intent and entities definition and it was already trained with about 300 examples per intent. 
 You are evidently welcome to make your own modifications to it.
 
 # Watson Natural Language Classifier
 
+Exactly same process as above, create from the catalog your instance and save your credentials.
 
