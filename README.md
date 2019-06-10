@@ -1,4 +1,4 @@
-# Watson for MANA
+# AI for the Environment - Watson for MANA
 
 Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations. 
 The specific architecture of this solution make the best use of several Watson modules to achieve an optimized result.
