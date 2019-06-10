@@ -120,7 +120,9 @@ On Windows: py script_name
 
 # Follow the execution
 
-A great care was taken such that all 
+A great care was taken such that all that the script does which is interesting for you to understand and follow, is displayed on the terminal during the execution. 
+
+You are invited at the beginning to define your supervision settings, and the number of keywords from NLU that are to be considered.
 
 # How to adapt the script to create your own “Watson for good” use cases
 
