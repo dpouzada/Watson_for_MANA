@@ -115,13 +115,7 @@ Once you understand how the script works and trust its performance, I will expla
 3) Save the scripts on a folder, along with the excel file containing the articles to be treated.
 4) On the terminal run the script with the command:
 python script_name
-5) If you want to stop the script in the 
--Installer Anaconda (qui contient notamment l'interpréteur Python, et l'éditeur de code Spyder)
--Installer les packages Watson en écrivant en ligne de commande (depuis ton répertoire home ça avait marché pour toi hier, i.e. quand tu ouvres le terminal tu écris "cd" et tu seras dans le répertoire home): pip install --upgrade "watson-developer-cloud>=2.5.1"
-- Sauver le script et les fichiers excel à traiter dans le même répertoire (Documents par exemple)
-- Lancer le script par la commande: python <nom_du_script>
-- Arrêter l'éxecution si voulu par Ctrl+C
-- Si tu veux voir les variables, ouvrir Spyder dans Anaconda navigator, et ouvrir le script depuis spyder. En cliquant sur la flèche verte "RUN", ça revient à faire tourner dans le terminal, avec le gros avantage de pouvoir visualiser le contenu des variables créées par le script. Donc pour débugger, ou comprendre comment le script fonctionne, c'est le plus pratique.
+5) In case you want to stop the script before the end of its execution, type Ctrl+C on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files OuiMANA and NonMANA.
 
 # How to adapt the script to create your own “Watson for good” use cases
 
