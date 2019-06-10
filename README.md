@@ -1,9 +1,9 @@
 # AI for the Environment - Watson for MANA
 
 Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations. 
-The specific architecture of this solution make the best use of several Watson modules to achieve an optimized result.
+The specific architecture of this solution makes the best use of several Watson modules to achieve an optimized result for this challenge.
 
-Below is a detailed step by step tutorial to invite you to run by yourself Watson for MANA script. No prior knowledge at all is expected. It is meant to be achievable by anyone and is fully self explanatory, following the same pedagogical principle than for instance OpenClassroom.
+Below is a detailed step by step tutorial to invite you to run by yourself Watson for MANA algorithm. No prior knowledge at all is expected. It is meant to be achievable by anyone and is fully self explanatory, following the same pedagogical principle than for instance OpenClassroom.
 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
