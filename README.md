@@ -1,3 +1,5 @@
+This is a detailed step by step tutorial to invite you to run by yourself Watson for MANA script. No prior knowledge at all is expected. It is meant to be doable by anyone and is fully self explanatory, following the same pedagogical principle than for instance OpenClassrooms courses.
+
 Menu
 
 # Watson_for_MANA
@@ -10,6 +12,8 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
 # Challenge definition
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
+
+Please visit their website at: 
 
 How to achieve this goal ?
 
