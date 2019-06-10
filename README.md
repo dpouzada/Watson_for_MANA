@@ -145,6 +145,19 @@ You are invited at the beginning to define your supervision settings, and the nu
 
 # How to adapt the script to create your own “Watson for good” use cases
 
+# Conclusion
+
+As you were hopefully able to experiment by yourself, the solution performance, speed of training, and flexibility was achieved by leveraging in a complex architecture several Watson modules.
+Not only has it answered the initial challenge of classifying with accuracy text articles, it is also capable of directly indicating in the classified text where are the sentences containing relevant information.
+
+This enables saving time for MANA to supervise and check that the articles were correctly classified, and to the end user of this information who can also directly go to the point.
+
+# Improvements to come
+
+List here
+
+Latitudes
+
 # Acknowledgments
 
 On IBM side, thanks to Ramzi ben Ouagram and Vincent Perrin for allowing the project to develop. Thanks to Alexandre Berthet who supported actively the practical implementation for MANA of this solution, and is working on the improvement to bring it to next level.
