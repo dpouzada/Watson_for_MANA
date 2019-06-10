@@ -51,7 +51,7 @@ Those instances can all be created entirely FOR FREE on IBM Cloud, giving you ac
 
 # First step : Create your IBM Cloud account for free
 
-
+Also download the file Instances_Watson_modules.py where we will insert your credentials as we instantiate the services.
 
 # Watson Natural Language Understanding
 
@@ -72,7 +72,15 @@ Scroll down to Naural Language Understanding and, after having set the region to
 
 (Pictures here)
 
-Now that you just created your instance, click on Manage and copy the API Key and URL, as you will need to insert them later in the script.
+Now that you just created your instance, click on Manage and you can already copy the API Key and replace the appropriate field in the file Instances_Watson_modules.py. 
+
+You just need to insert your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below :
+
+naturalLanguageUnderstanding = NaturalLanguageUnderstandingV1(
+    version='2018-11-16',
+    iam_apikey='xxx',
+    url='https://gateway-fra.watsonplatform.net/natural-language-understanding/api'
+)
 
 # Watson Assistant
 
@@ -82,13 +90,23 @@ I encourage you to learn how to design your own assistant with ... tutorial
 
 ## How to create your own Watson Assistant instance
 
-Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and save your credentials: URL and API Key.
+Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
+
+assistant = watson_developer_cloud.AssistantV1(
+    iam_apikey='xxx',
+    version='2018-09-20',
+    url='https://gateway-fra.watsonplatform.net/assistant/api'
+)
 
 Then click on launch Watson Assistant, then on the tab "Skills".
 I invite you then to click on "create skill" and then "import skill".
 
 For this project I invite you to import as a starting point the skill MANA_orchestrator.json. It has the right dialog structure, intent and entities definition and it was already trained with about 300 examples per intent. 
 You are evidently welcome to make your own modifications to it.
+
+Then click on Skills above and you should visualise your new imported skill called MANA orchestrator. Please click on the three vertical dots, 'view API details'. You shall then copy the workspace-id credentials and replace in the file Instances_Watson_modules.py the 'xxx' in the line:
+
+workspace_id_assistant='xxx'
 
 # Watson Natural Language Classifier
 
