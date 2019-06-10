@@ -1,15 +1,15 @@
 This is a detailed step by step tutorial to invite you to run by yourself Watson for MANA script. No prior knowledge at all is expected. It is meant to be achievable by anyone and is fully self explanatory, following the same pedagogical principle than for instance OpenClassrooms courses.
 
+Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
+
 Menu
 
-# A little introduction to Watson for MANA
+# Introduction to Watson for MANA
 
 Watson AI modules help MANA process thousands of articles to track environmental impact. 
 The specific architecture of this solution make the best use of several Watson modules to achieve an optimized result.
 
-Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
-
-# Challenge definition
+## Challenge definition
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
 
