@@ -54,7 +54,7 @@ Solution: Watson Artificial Intelligence processing power can dramatically reduc
 
 In practice this amounts to a very typical classification task.
 
-Image
+[!classification](https://github.com/dpouzada/Watson_for_MANA/blob/master/Images/Image%20Classification.png)
 
 In our case, "relevant" information is when environmental impact by a corporation (e.g. deforestation resulting from palm oil industry, etc..) is detected in an article. Irrelevant is when no such information is present in the article.
 
@@ -184,6 +184,8 @@ On Windows: py script_name
 A great care was taken such that all that the script does which is interesting for you to understand and follow, is displayed on the terminal during the execution. 
 
 You are invited at the beginning to define your supervision settings, and the number of keywords from NLU that are to be considered.
+
+[!execution](https://github.com/dpouzada/Watson_for_MANA/blob/master/Images/Demo_MANA.swf)
 
 ## How to adapt the script to create your own “Watson for good” use cases
 
