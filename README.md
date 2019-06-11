@@ -9,7 +9,7 @@ Below is a detailed step by step tutorial to invite you to run by yourself this 
 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
-- [Using IBM Watson Assistant in iAdvize](#using-ibm-watson-assistant-in-iadvize)
+- [AI for the Environment - Watson for MANA](#AI for the Environment - Watson for MANA)
   - [Introduction](#introduction)
   - [IBM Watson Assistant](#ibm-watson-assistant)
   - [iAdvize](#iadvize)
