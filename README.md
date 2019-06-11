@@ -10,20 +10,16 @@ Below is a detailed step by step tutorial to invite you to run by yourself this 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
 - [AI for the Environment - Watson for MANA](#ai-for-the-environment---watson-for-mana)
-  - [Introduction](#introduction)
-  - [IBM Watson Assistant](#ibm-watson-assistant)
-  - [iAdvize](#iadvize)
+  - [Challenge definition](#challenge-definition)
+  - [A very general classification problem](#a-very-general-classification-problem)
+  - [What is the solution ?](#What-is-the-solution-?)
   - [Prerequisites](#prerequisites)
-  - [Configuring Watson Assistant](#configuring-watson-assistant)
-  - [Configuring iAdvize](#configuring-iadvize)
-    - [Create the iAdvize Bot Plugin](#create-the-iadvize-bot-plugin)
-    - [Setup the Plugin on the iAdvize admin platform](#setup-the-plugin-on-the-iadvize-admin-platform)
-  - [Some technical details](#some-technical-details)
+    - [Preamble](#preamble)
+  - [Step by step guide to run the script](#step-by-step-guide-to-run-the-script)
   - [The core of the application](#the-core-of-the-application)
   - [Building the routes](#building-the-routes)
   - [Using Watson Assistant](#using-watson-assistant)
-    - [Instantiating the service](#instantiating-the-service)
-    - [Creating a session](#creating-a-session)
+    - [First step : Create your IBM Cloud account for free](#First step : Create your IBM Cloud account for free)
     - [Sending the message](#sending-the-message)
       - [Watson Assistant's types of messages](#watson-assistants-types-of-messages)
       - [iAdvize's types of messages](#iadvizes-types-of-messages)
@@ -50,7 +46,7 @@ Problem: It is (linearly) costly in time for human beings to read the articles
 
 Solution: Watson Artificial Intelligence processing power can dramatically reduce the workload 
 
-# A very general classification problem
+## A very general classification problem
 
 In practice this amounts to a very typical classification task.
 
@@ -66,7 +62,7 @@ To answer with anticipation, the final solution implemented:
 1) explicitly displays on the screen every single major processing done for the user to be able to understand/follow it
 2) The final architecture keeps best flexibility possible by optimizing the trade off between the speed of learning and the scaling power of the pure ML approach
 
-# What is the solution ?
+## What is the solution ?
 
 Please look at the Power Point to better understand the underlying justification for this final solution. It details the genesis of the reasoning, ideation process and trials that allowed to eventually settle after several adjustments to reach that final architecture.
 
@@ -74,17 +70,17 @@ Please look at the Power Point to better understand the underlying justification
 
 If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module, or the following sections which explain what each module is capable of doing, before guiding you practically to create your own instances to be ble to run the script.
 
-# Step by step guide to run the script
+## Step by step guide to run the script
 
 First and foremost you will need to instantiate several Watson modules.
 
 Those instances can all be created entirely FOR FREE on IBM Cloud, giving you access for each module to about free 10 000 API calls to experiment by yourself, build your own POCs and demos.
 
-# First step : Create your IBM Cloud account for free
+### First step : Create your IBM Cloud account for free
 
 Also download the file Instances_Watson_modules.py where we will insert your credentials as we instantiate the services.
 
-# Watson Natural Language Understanding
+## Watson Natural Language Understanding
 
 In short, this module allows you to extract Metadata (structured data) from an unstructured text: 
 - Sentiment, Emotion
@@ -96,7 +92,7 @@ In short, this module allows you to extract Metadata (structured data) from an u
 
 Please consult the demo page to visualise by yourself what Watson NLU is capable of doing.
 
-## How to create your own Watson NLU instance
+### How to create your own Watson NLU instance
 
 Once you are logged in your IBM account, click on "Catalog" and the "AI section".
 Scroll down to Naural Language Understanding and, after having set the region to deploy your service (Frankfurt in my case) you click on Create.
@@ -113,7 +109,7 @@ naturalLanguageUnderstanding = NaturalLanguageUnderstandingV1(
     url='https://gateway-fra.watsonplatform.net/natural-language-understanding/api'
 )
 
-# Watson Assistant
+## Watson Assistant
 
 General intro of what it's capable of and what you can do with it
 
@@ -139,7 +135,7 @@ Then click on Skills above and you should visualise your new imported skill call
 
 workspace_id_assistant='xxx'
 
-# Watson Natural Language Classifier
+## Watson Natural Language Classifier
 
 What is it ?
 
@@ -150,7 +146,7 @@ natural_language_classifier = NaturalLanguageClassifierV1(
 url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
 
 
-# Watson Translator
+## Watson Translator
 
 No need to explain hopefully what the translator does. We will need it to treat articles from 80 languages for MANA ! 
 Again same process, just create an instance and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
@@ -161,7 +157,7 @@ url='https://gateway-fra.watsonplatform.net/language-translator/api',
 iam_apikey='xxx'
 )
 
-# How to run the script
+## How to run the script
 
 Now that you have updates the file Instances_Watson_modules.py with your own credentials (API Keys for each module instance), you are ready to run the script.
 
@@ -169,7 +165,7 @@ I suggest you start by running it locally. This is easier and allows to assess t
 
 Once you understand how the script works and trust its performance, I will explain to you how to run a much more compact version directly on IBM Cloud, through what is called a "Cloud function". This is what MANA Vox is currently doing.
 
-## How to run the script locally on your machine
+### How to run the script locally on your machine
 
 1) Install a Python interpreter if not already the case (Anaconda will do great, and includes the Spyder IDE which comes handy)
 2) Install Watson packages by running on the terminal (command line called cmd on Windows): pip install --upgrade "watson-developer-cloud>=2.5.1"
@@ -179,28 +175,28 @@ On Linux and MacOS: python script_name
 On Windows: py script_name
 5) In case you want to stop the script before the end of its execution, type Ctrl+C as the scrit is running on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files OuiMANA and NonMANA.
 
-# Follow the execution
+## Follow the execution
 
 A great care was taken such that all that the script does which is interesting for you to understand and follow, is displayed on the terminal during the execution. 
 
 You are invited at the beginning to define your supervision settings, and the number of keywords from NLU that are to be considered.
 
-# How to adapt the script to create your own “Watson for good” use cases
+## How to adapt the script to create your own “Watson for good” use cases
 
-# Conclusion
+## Conclusion
 
 As you were hopefully able to experiment by yourself, the solution performance, speed of training, and flexibility was achieved by leveraging in a complex architecture several Watson modules.
 Not only has it answered the initial challenge of classifying with accuracy text articles, it is also capable of directly indicating in the classified text where are the sentences containing relevant information.
 
 This enables saving time for MANA to supervise and check that the articles were correctly classified, and to the end user of this information who can also directly go to the point.
 
-# Improvements to come
+## Improvements to come
 
 List here
 
 Latitudes
 
-# Acknowledgments
+## Acknowledgments
 
 On IBM side, thanks to Ramzi ben Ouagram and Vincent Perrin for allowing the project to develop. Thanks to Alexandre Berthet who supported actively the practical implementation for MANA of this solution, and is working on the improvement to bring it to next level.
 On MANA side, thanks to Gabrielle Garmier and Capucine Lebois for their energy and pedagogy in co-desigining this solution together.
