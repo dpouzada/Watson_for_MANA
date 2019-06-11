@@ -27,6 +27,27 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
     - [Deploy the frontend](#deploy-the-frontend)
     - [Testing the chatbot](#testing-the-chatbot)
     
+  - [Challenge definition](#Challenge-definition)
+  - [A very general classification problem](#A-very-general-classification-problem)
+  - [What is the solution ?](#What-is-the-solution-?)
+    - [Preamble](#Preamble)
+  - [Step by step guide to run the script](#Step-by-step-guide-to-run-the-script)
+    - [First step : Create your IBM Cloud account for free](#First-step-:-Create-your-IBM-Cloud-account-for-free)
+  - [Watson Natural Language Understanding](#Watson-Natural-Language-Understanding)
+    - [How to create your own Watson NLU instance](#How-to-create-your-own-Watson-NLU-instance)
+  - [Watson Assistant](#Watson-Assistant)
+  - [How to create your own Watson Assistant instance](#How-to-create-your-own-Watson-Assistant-instance)
+  - [Watson Natural Language Classifier](#Watson-Natural-Language-Classifier)
+  - [Watson Translator](#Watson-Translator)
+  - [How to run the script](#How-to-run-the-script)
+    - [How to run the script locally on your machine](#How-to-run-the-script-locally-on-your-machine)
+  - [Follow the execution](#Follow-the-execution)
+  - [How to adapt the script to create your own Watson for good use cases](#How-to-adapt-the-script-to-create-your-own-Watson-for-good-use-cases)
+  - [Conclusion](#Conclusion)
+  - [Improvements to come](#Improvements-to-come)
+  - [Acknowledgments](#Acknowledgments)
+
+    
 ## Challenge definition
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
