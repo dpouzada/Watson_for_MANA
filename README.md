@@ -15,7 +15,7 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
   - [What is the solution ?](#What-is-the-solution-?)
     - [Preamble](#Preamble)
   - [Step by step guide to run the script](#Step-by-step-guide-to-run-the-script)
-    - [First step : Create your IBM Cloud account for free](#First-step-:-Create-your-IBM-Cloud-account-for-free)
+    - [First step : Create your IBM Cloud account for free](#First-step---create-your-IBM-Cloud-account-for-free)
   - [Watson Natural Language Understanding](#Watson-Natural-Language-Understanding)
     - [How to create your own Watson NLU instance](#How-to-create-your-own-Watson-NLU-instance)
   - [Watson Assistant](#Watson-Assistant)
