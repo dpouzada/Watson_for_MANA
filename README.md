@@ -54,7 +54,7 @@ Solution: Watson Artificial Intelligence processing power can dramatically reduc
 
 In practice this amounts to a very typical classification task.
 
-[!classification](Images/Image%20Classification.png)
+![classification](Images/Image%20Classification.png)
 
 In our case, "relevant" information is when environmental impact by a corporation (e.g. deforestation resulting from palm oil industry, etc..) is detected in an article. Irrelevant is when no such information is present in the article.
 
@@ -185,7 +185,7 @@ A great care was taken such that all that the script does which is interesting f
 
 You are invited at the beginning to define your supervision settings, and the number of keywords from NLU that are to be considered.
 
-[!execution](Images/Demo_MANA.swf)
+![execution](Images/Demo_MANA.swf)
 
 ## How to adapt the script to create your own “Watson for good” use cases
 
