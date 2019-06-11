@@ -12,7 +12,7 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
 - [AI for the Environment - Watson for MANA](#ai-for-the-environment---watson-for-mana)
   - [Challenge definition](#challenge-definition)
   - [A very general classification problem](#a-very-general-classification-problem)
-  - [What is the solution ?](#What-is-the-solution-?)
+  - [What is the solution ?](#what-is-the-solution-?)
   - [Prerequisites](#prerequisites)
     - [Preamble](#preamble)
   - [Step by step guide to run the script](#step-by-step-guide-to-run-the-script)
