@@ -10,23 +10,6 @@ Below is a detailed step by step tutorial to invite you to run by yourself this 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
 - [AI for the Environment - Watson for MANA](#ai-for-the-environment---watson-for-mana)
-  - [Challenge definition](#challenge-definition)
-  - [A very general classification problem](#A-very-general-classification-problem)
-  - [What is the solution ?](#what-is-the-solution-?)
-  - [Prerequisites](#prerequisites)
-    - [Preamble](#preamble)
-  - [Step by step guide to run the script](#step-by-step-guide-to-run-the-script)
-  - [The core of the application](#the-core-of-the-application)
-  - [Building the routes](#building-the-routes)
-  - [Using Watson Assistant](#using-watson-assistant)
-    - [First step : Create your IBM Cloud account for free](#First step : Create your IBM Cloud account for free)
-    - [Sending the message](#sending-the-message)
-      - [Watson Assistant's types of messages](#watson-assistants-types-of-messages)
-      - [iAdvize's types of messages](#iadvizes-types-of-messages)
-  - [Let's test it](#lets-test-it)
-    - [Deploy the frontend](#deploy-the-frontend)
-    - [Testing the chatbot](#testing-the-chatbot)
-    
   - [Challenge definition](#Challenge-definition)
   - [A very general classification problem](#A-very-general-classification-problem)
   - [What is the solution ?](#What-is-the-solution-?)
