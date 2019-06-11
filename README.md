@@ -123,18 +123,29 @@ workspace_id_assistant='xxx'
 
 What is it ?
 
-Exactly same process as above, create from the catalog your instance (in Frankfurt in my case) and save your credentials.
+Exactly same process as above, create from the catalog your instance (in Frankfurt in my case) and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
+
+natural_language_classifier = NaturalLanguageClassifierV1(
+    iam_apikey='xxx',
+url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
+
 
 # Watson Translator
 
 No need to explain hopefully what the translator does. We will need it to treat articles from 80 languages for MANA ! 
-Just create an instance and save your credentials, same process.
+Again same process, just create an instance and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
 
-# Insert your credentials at the beginning of the script 
+language_translator = LanguageTranslatorV3(
+version='2018-05-01',
+url='https://gateway-fra.watsonplatform.net/language-translator/api',
+iam_apikey='xxx'
+)
 
 # How to run the script
 
-As I will explain below, I suggest you start by running this script locally. This will be easier and allow to assess the performance of the solution by yourself.
+Now that you have updates the file Instances_Watson_modules.py with your own credentials (API Keys for each module instance), you are ready to run the script.
+
+I suggest you start by running it locally. This is easier and allows to assess the results of the solution by yourself.
 
 Once you understand how the script works and trust its performance, I will explain to you how to run a much more compact version directly on IBM Cloud, through what is called a "Cloud function". This is what MANA Vox is currently doing.
 
