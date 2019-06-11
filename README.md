@@ -9,8 +9,28 @@ Below is a detailed step by step tutorial to invite you to run by yourself this 
 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
-Menu
-
+- [Using IBM Watson Assistant in iAdvize](#using-ibm-watson-assistant-in-iadvize)
+  - [Introduction](#introduction)
+  - [IBM Watson Assistant](#ibm-watson-assistant)
+  - [iAdvize](#iadvize)
+  - [Prerequisites](#prerequisites)
+  - [Configuring Watson Assistant](#configuring-watson-assistant)
+  - [Configuring iAdvize](#configuring-iadvize)
+    - [Create the iAdvize Bot Plugin](#create-the-iadvize-bot-plugin)
+    - [Setup the Plugin on the iAdvize admin platform](#setup-the-plugin-on-the-iadvize-admin-platform)
+  - [Some technical details](#some-technical-details)
+  - [The core of the application](#the-core-of-the-application)
+  - [Building the routes](#building-the-routes)
+  - [Using Watson Assistant](#using-watson-assistant)
+    - [Instantiating the service](#instantiating-the-service)
+    - [Creating a session](#creating-a-session)
+    - [Sending the message](#sending-the-message)
+      - [Watson Assistant's types of messages](#watson-assistants-types-of-messages)
+      - [iAdvize's types of messages](#iadvizes-types-of-messages)
+  - [Let's test it](#lets-test-it)
+    - [Deploy the frontend](#deploy-the-frontend)
+    - [Testing the chatbot](#testing-the-chatbot)
+    
 ## Challenge definition
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
