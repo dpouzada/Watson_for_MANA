@@ -141,6 +141,10 @@ Then click on Skills above and you should visualise your new imported skill call
 
 workspace_id_assistant='xxx'
 
+Hopefully, the video below should help you in the steps explained before of importing the skills. It also shows you a little exploration of the intents, entities, the dialog, and makes a little test to show you what are MANA Orchestrator responses according to the input.
+
+[![](Images/Assistant.png)](https://youtu.be/VR6GGreDdQ8)
+
 ## Watson Natural Language Classifier
 
 What is it ?
