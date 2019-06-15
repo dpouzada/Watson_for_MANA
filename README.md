@@ -185,9 +185,8 @@ A great care was taken such that all that the script does which is interesting f
 
 You are invited at the beginning to define your supervision settings, and the number of keywords from NLU that are to be considered.
 
-[![](Images/Run Watson_For_MANA.png)](https://youtu.be/XQkW0PayBgk)
+[![classification](Images/Run%20Watson_For_MANA.png)](https://youtu.be/XQkW0PayBgk)
 
-![run](Images/Image Classification.png)
 ## How to adapt the script to create your own “Watson for good” use cases
 
 ## Conclusion
