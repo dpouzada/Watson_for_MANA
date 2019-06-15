@@ -72,6 +72,11 @@ Please look at the Power Point to better understand the underlying justification
 
 ![schema_architecture](Images/Schema_principe.png)
 
+Now, an additional feature of the script that did not fit in this overwhelming architecture schema:
+One limitation in the keyword recognition is that alerting entities have to be pre-filled manually on Watson Assistant interface by the user. Those manually informed alerting entities aim to make sure 100% not to miss those words like deforestation, environmental destruction, etc... To compensate for the fact that the user may not be able to guess all relevant keywords he wants to fill as alerting entities (to make sure 100% not to miss those words, like deforestation, environmental destruction, etc...) on a given set of articles. A prospection function was added. This prospection function treats all articles and informs back of the most recurring keywords, as a suggestion for the user who might recognise some relevant keywords to be added. This function is all the more useful when alerting entities are within one field, for instance the theme of deforestation and all its synonyms. And that a new set of articles of another field are to be treated. For instance about river pollution. Then the user may want to prospect the articles to be given an idea of the relevant alerting entities to add.
+
+Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This allows the user to make observations about the alerting entities which are most relevant to keep in that they were most sollicited.
+
 ### Preamble
 
 If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module, or the following sections which explain what each module is capable of doing, before guiding you practically to create your own instances to be ble to run the script.
@@ -192,11 +197,6 @@ A great care was taken such that all that the script does which is interesting f
 You are invited at the beginning to define your supervision settings, and the number of keywords from NLU that are to be considered.
 
 [![classification](Images/Run%20Watson_For_MANA.png)](https://youtu.be/XQkW0PayBgk)
-
-Now, an additional feature of the script that did not fit in this overwhelming architecture schema:
-One limitation in the keyword recognition is that alerting entities have to be pre-filled manually on Watson Assistant interface by the user. Those manually informed alerting entities aim to make sure 100% not to miss those words like deforestation, environmental destruction, etc... To compensate for the fact that the user may not be able to guess all relevant keywords he wants to fill as alerting entities (to make sure 100% not to miss those words, like deforestation, environmental destruction, etc...) on a given set of articles. A prospection function was added. This prospection function treats all articles and informs back of the most recurring keywords, as a suggestion for the user who might recognise some relevant keywords to be added. This function is all the more useful when alerting entities are within one field, for instance the theme of deforestation and all its synonyms. And that a new set of articles of another field are to be treated. For instance about river pollution. Then the user may want to prospect the articles to be given an idea of the relevant alerting entities to add;
-
-Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This allows the user to make observations about the alerting entities which are most relevant to keep in that they were most sollicited.
 
 Let's detail here what is done during this execution:
 As you have probably already understood from the previous explanation of the architecture, the entities of the chatbot are 
