@@ -172,7 +172,7 @@ Once you understand how the script works and trust its performance, I will expla
 ### How to run the script locally on your machine
 
 1) Install a Python interpreter if not already the case (Anaconda will do great, and includes the Spyder IDE which comes handy)
-2) Install Watson packages by running on the terminal (command line called cmd on Windows): pip install --upgrade "watson-developer-cloud>=2.5.1"
+2) Install Watson packages by running on the terminal (command line called cmd on Windows): pip install --upgrade ibm-watson (or on windows: py -m pip install ibm_watson)
 3) Save the scripts on a folder, along with the excel file containing the articles to be treated.
 4) On the terminal run the script with the command:
 On Linux and MacOS: python script_name
