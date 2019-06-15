@@ -187,6 +187,7 @@ You are invited at the beginning to define your supervision settings, and the nu
 
 [![](Images/Run Watson_For_MANA.png)](https://youtu.be/XQkW0PayBgk)
 
+![run](Images/Run Watson_For_MANA.png)
 ## How to adapt the script to create your own “Watson for good” use cases
 
 ## Conclusion
