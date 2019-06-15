@@ -217,6 +217,8 @@ To visualize the final result, you can either use the vba macro from the excel f
  
 [![](Images/Notebook_display.png)](https://www.youtube.com/watch?v=pxZzA1taipc)
 
+### What is Watson Studio and how to create your account ?
+
 
 ## Conclusion
 
