@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#!/usr/bin/env py -W ignore::DeprecationWarning
 """
 @author: Daniel Pouzada, IBM Watson Tech Sales Junior
 """
 #Importation des modules nécessaires par la suite
 
-import watson_developer_cloud
-
+import ibm_watson
 import Instances_Watson_modules
 
 naturalLanguageUnderstanding=Instances_Watson_modules.naturalLanguageUnderstanding
@@ -15,7 +15,7 @@ natural_language_classifier=Instances_Watson_modules.natural_language_classifier
 language_translator=Instances_Watson_modules.language_translator
 workspace_id_assistant=Instances_Watson_modules.workspace_id_assistant
 
-from watson_developer_cloud.natural_language_understanding_v1 \
+from ibm_watson.natural_language_understanding_v1 \
     import Features, EntitiesOptions, KeywordsOptions, ConceptsOptions, SentimentOptions, EmotionOptions
     
 import xlrd 
@@ -137,8 +137,8 @@ atexit.register(train_3rd_layer_NLC,assistant, natural_language_classifier, list
 #namefile_to_treat='test_IA_9_01_19.xlsx'
 
 namefile_to_treat, sheet, Line_of_first_article_to_be_treated_in_the_excel_file, Line_of_last_article_to_be_treated_in_the_excel_file=input_file_to_treat_with_cells()
-#ask_for_Confirmation,ask_for_mana_alert,ask_for_deceitful_alert,ask_for_Training_intent,ask_for_NLC,ask_for_save_MANA_article,ask_for_Save_Non_MANA=setting_supervision(namefile_to_treat)
-ask_for_Confirmation,ask_for_mana_alert,ask_for_deceitful_alert,ask_for_Training_intent,ask_for_NLC,ask_for_save_MANA_article,ask_for_Save_Non_MANA=["N","N","N","N","N","N","N"]
+ask_for_Confirmation,ask_for_mana_alert,ask_for_deceitful_alert,ask_for_Training_intent,ask_for_NLC,ask_for_save_MANA_article,ask_for_Save_Non_MANA=setting_supervision(namefile_to_treat)
+#ask_for_Confirmation,ask_for_mana_alert,ask_for_deceitful_alert,ask_for_Training_intent,ask_for_NLC,ask_for_save_MANA_article,ask_for_Save_Non_MANA=["N","N","N","N","N","N","N"]
 
 #counter_well_recognized_articles_during_this_execution=0
 #counter_treated_articles_during_this_execution=0

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/env py -W ignore::DeprecationWarning
 """
 @author: Daniel Pouzada, IBM Watson Tech Sales Junior
 """
 
 #Importation des modules nécessaires par la suite
 import xlrd 
-import watson_developer_cloud
+import ibm_watson
 
 import csv
 
@@ -22,7 +23,7 @@ natural_language_classifier=Instances_Watson_modules.natural_language_classifier
 language_translator=Instances_Watson_modules.language_translator
 workspace_id_assistant=Instances_Watson_modules.workspace_id_assistant
 
-from watson_developer_cloud.natural_language_understanding_v1 \
+from ibm_watson.natural_language_understanding_v1 \
     import Features, EntitiesOptions, KeywordsOptions, ConceptsOptions, SentimentOptions, EmotionOptions
 
 def input_file_to_treat_with_cells():
