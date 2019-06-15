@@ -191,6 +191,21 @@ You are invited at the beginning to define your supervision settings, and the nu
 
 ## How to adapt the script to create your own “Watson for good” use cases
 
+## How to visualise the final result
+
+### The "easy but limited" way
+
+To visualize the final result, you can either use the vba macro from the excel file "Visualisation Articles Watson fro MANA.xlsm. In fact by running the macro "load MANA articles", or the shortcut Ctrl + Shift + L, all articles which are stored in your .tsv file will loaded and displayed in a neat column formatted. Important for the macro to work is that the excl file is in the same folder as your .tsv files.
+
+### The "harder but nicer" way
+
+ I invite you to run the notebook in Watson Studio to display all articles inthe nicest way.
+ In fact, as you can observe in the video below, which shows the process to do so, you will be able at the end to recover the full texts with relevant sentences and keywords highlighted directly (instead of stored in separate columns in the excel files).
+ An additional advantage allowed by this display noebook is the scroll down that allows you to only see the full texts of the articles you are interestes in, and not necessarily all texts as in Excel.
+ 
+[![](Images/Notebook_display.png)](https://www.youtube.com/watch?v=pxZzA1taipc)
+
+
 ## Conclusion
 
 As you were hopefully able to experiment by yourself, the solution performance, speed of training, and flexibility was achieved by leveraging in a complex architecture several Watson modules.
