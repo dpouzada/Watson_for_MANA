@@ -1,4 +1,4 @@
-# AI for the Environment - Watson for MANA
+# AI for the Environment
 
 ![](Images/Presentation.png)
 
