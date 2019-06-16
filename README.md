@@ -79,7 +79,7 @@ One limitation in the keyword recognition is that alerting entities have to be p
 
 Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This allows the user to make observations about the alerting entities which are most relevant to keep in that they were most sollicited.
 
-### Verbose Explanationsn on the big steps of the algorithm and the justification of the architecture
+### Verbose Explanations on the big steps of the algorithm and the justification of the architecture
 
 First and foremost, the raw text of the article is translated to English if necessary and sent to NLU.
 
