@@ -218,11 +218,11 @@ Now that you just created your instance, click on Manage and you can already cop
 
 For this, you just need to insert your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below:
 
-naturalLanguageUnderstanding = NaturalLanguageUnderstandingV1(
+`naturalLanguageUnderstanding = NaturalLanguageUnderstandingV1(
     version='2018-11-16',
     iam_apikey='xxx',
     url='https://gateway-fra.watsonplatform.net/natural-language-understanding/api'
-)
+)`
 
 ## Watson Assistant
 
@@ -244,11 +244,11 @@ What makes Watson Assistant an extremely interesting fundamental brick to levera
 
 Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
 
-assistant = watson_developer_cloud.AssistantV1(
+`assistant = watson_developer_cloud.AssistantV1(
     iam_apikey='xxx',
     version='2018-09-20',
     url='https://gateway-fra.watsonplatform.net/assistant/api'
-)
+)`
 
 
 Then click on launch Watson Assistant, then on the tab "Skills".
@@ -261,7 +261,7 @@ You are evidently welcome to make your own modifications to it.
 
 Then click on Skills above and you should visualise your new imported skill called MANA orchestrator. Please click on the three vertical dots, 'view API details'. You shall then copy the workspace-id credentials and replace in the file Instances_Watson_modules.py the 'xxx' in the line:
 
-workspace_id_assistant='xxx'
+`workspace_id_assistant='xxx'`
 
 ### A Video to guide you in case
 
@@ -277,9 +277,9 @@ This pure, external/independent Watson NLC service (not embedded in Watson Assis
 
 Exactly same process as above, create from the catalog your instance (in Frankfurt in my case) and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
 
-natural_language_classifier = NaturalLanguageClassifierV1(
+`natural_language_classifier = NaturalLanguageClassifierV1(
     iam_apikey='xxx',
-url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
+url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')`
 
 
 ## Watson Translator
@@ -287,11 +287,11 @@ url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
 No need to explain hopefully what the translator does. We will need it to treat articles from 80 languages for MANA ! 
 Again same process, just create an instance and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
 
-language_translator = LanguageTranslatorV3(
+`language_translator = LanguageTranslatorV3(
 version='2018-05-01',
 url='https://gateway-fra.watsonplatform.net/language-translator/api',
 iam_apikey='xxx'
-)
+)`
 
 ## How to run the script
 
@@ -307,9 +307,11 @@ Once you understand how the script works and trust its performance, I will invit
 2) Install Watson packages by running on the terminal (command line called cmd on Windows): `pip install --upgrade ibm-watson (or on windows: py -m pip install ibm_watson)`
 3) Save the three scripts called  `Main_Watson_for_MANA.py`, `Functions_Watson_for_MANA.py` and obviously `Instances_Watson_modules.py` which you have already been filling with your credentials, in the same folder, along with the excel file `file_articles.xls` containing the articles to be treated.
 4) in the terminal run the script with the command:
+
 On Linux and MacOS: `python Main_Watson_for_MANA.py`
+
 On Windows: `py Main_Watson_for_MANA.py`
-5) In case you want to stop the script before the end of its execution, type Ctrl+C as the scrit is running on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files Oui_MANA_articles.tsv and Non_MANA_articles.tsv (which will have been created during the first execution if they were not already present, or updated with the new articles they already existed and stored articles classified in the past).
+5) In case you want to stop the script before the end of its execution, type `Ctrl+C` as the scrit is running on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files `Oui_MANA_articles.tsv` and `Non_MANA_articles.tsv` (which will have been created during the first execution if they were not already present, or updated with the new articles they already existed and stored articles classified in the past).
 
 ## Follow the execution
 
