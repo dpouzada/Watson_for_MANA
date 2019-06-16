@@ -319,6 +319,7 @@ Once you understand how the script works and trust its performance, I will invit
 On Linux and MacOS: `python Main_Watson_for_MANA.py`
 
 On Windows: `py Main_Watson_for_MANA.py`
+
 5) In case you want to stop the script before the end of its execution, type `Ctrl+C` as the scrit is running on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files `Oui_MANA_articles.tsv` and `Non_MANA_articles.tsv` (which will have been created during the first execution if they were not already present, or updated with the new articles they already existed and stored articles classified in the past).
 
 ## Follow the execution
