@@ -5,7 +5,7 @@
 @author: Daniel Pouzada, IBM Watson Tech Sales Junior
 """
 #Importation des modules nécessaires par la suite
-
+ 
 import ibm_watson
 import Instances_Watson_modules
 
