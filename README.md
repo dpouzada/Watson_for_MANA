@@ -137,6 +137,14 @@ Should the ordering be mostly based on ?
 4.	The location… (the location and company could also easily help to store the whole article in different files)
 A weighted average of all of these probably, to determine through testing.
 
+#### Watson independent NLC model in last resort
+
+Yet, because it is possible that the keywords identified by NLU from the article do not trigger any alerting entity or intent detection from Watson assistant, the algorithm leverages the power of a pure NLC capability, simply through the API of Watson NLC service.
+
+Watson NLC service is trained with all the example sentences in the intents of Watson Assistant (which are very accurate relevant sentences, hence of great training value), but also with the full raw text of the article already classified. By very essence of neural networks, its training is long and not practical to update nor monitor.
+Yet, it is hoped to be more powerful when scaling, allowing to classify a whole unstructured text with more accuracy (through the multiple correlations it can draw with its training datasets) than Watson Assistant NLC. But its classification is expected to remain quite coarse compared to the sentence by sentence one of NLU + Watson Assistant.
+
+In fact, it is essentially a black box: the correlations it draws from its training data to classify the raw text of the article as relevant or not can sometimes be extremely powerful or completely absurd, without us really knowing a priori.
 
 
 ### Preamble
@@ -304,7 +312,9 @@ This enables saving time for MANA to supervise and check that the articles were 
 
 ## Improvements to come
 
-List here
+### Watson Knowledge Studio
+
+An additional capability named Watson Knowledge Studio (WKS) could be plugged at the level of the information returned by NLU that. WKS allows to create custom entities to be recognised by NLU. This becomes really interesting if we want to detect specific/technical vocabulary that would not be recognised by NLU. If we treat articles about chemicals polluting rivers for instance, and that specific chemicals are not recognised as keywords by the semantic analysis of NLU because they are not particularly emphasized in the article, but that we do not want to miss them. Then training a custom entity to detect chemicals (by the semantic position in the sentence) with WKS could be relevant. 
 
 Latitudes
 
