@@ -326,6 +326,7 @@ On Windows: `py Main_Watson_for_MANA.py`
 
 A great care was taken such that all that the script does which is interesting for you to understand and follow, is displayed on the terminal during the execution. 
 
+Please click on the laptop below to see a video of a local execution of the script in the terminal of my machine.
 
 [![classification](Images/Run%20Watson_For_MANA.png)](https://youtu.be/XQkW0PayBgk)
 
