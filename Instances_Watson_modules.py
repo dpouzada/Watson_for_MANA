@@ -4,7 +4,7 @@
 """
 
 import ibm_watson
-
+ 
 #Importation modules NLU
 from ibm_watson import NaturalLanguageUnderstandingV1
 from ibm_watson.natural_language_understanding_v1 \
