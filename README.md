@@ -345,4 +345,4 @@ Alexandre Berthet, data scientist at IBM, and I, will explore the implementation
 ## Acknowledgments
 
 On IBM side, thanks to Ramzi ben Ouagram and Vincent Perrin for allowing the project to develop. Thanks to Alexandre Berthet who supported actively the practical implementation for MANA of this solution, and is working on the improvement to bring it to next level.
-On MANA side, thanks to Gabrielle Garmier and Capucine Lebois for their energy and pedagogy in co-desigining this solution together.
+On MANA side, thanks to Gabrielle Garmier and Capucine Lebois for their energy and pedagogy in collaborating to implement this solution together, and to the founder Kiti Mignotte for her support.
