@@ -146,6 +146,13 @@ Yet, it is hoped to be more powerful when scaling, allowing to classify a whole 
 
 In fact, it is essentially a black box: the correlations it draws from its training data to classify the raw text of the article as relevant or not can sometimes be extremely powerful or completely absurd, without us really knowing a priori.
 
+#### Conclusion on the architecture
+
+As a conclusion, it is important to note that the tailored orchestration of NLU + Watson Assistant and the black box NLC approach are not in competition, they are complementary:
+NLU + Watson Assistant are fine tuned filters, able to detect relevant sentences. But even though they do not detect any, the entire article is in last resort sent to the black box NLC.
+
+This black box NLC can be trained from scratched with raw text of all already classified articles. We can be legitimately be optimistic that in the long term it will start performing very well, having in the meantime benefitted strongly from the highly relevant training sentences of the intents of Watson Assistant.
+
 
 ### Preamble
 
