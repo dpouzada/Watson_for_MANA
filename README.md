@@ -79,6 +79,34 @@ One limitation in the keyword recognition is that alerting entities have to be p
 
 Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This allows the user to make observations about the alerting entities which are most relevant to keep in that they were most sollicited.
 
+### Verbose Explanationsn on the big steps of the algorithm and the justification of the architecture
+
+First and foremost, the raw text of the article is translated to English if necessary and sent to NLU.
+
+Two basic primary filters are applied there from information extracted by NLU not to discard the article as irrelevant:
+a company must have been detected and the overall sentiment (a pondered score of several tone indicators) must be negative.
+
+Then, one by one all the keywords extracted from NLU are sent to Watson assistant.
+In fact, as detailed in the PPT, a thorough preliminary study showed that the keywords were the most relevant information to get from NLU treatment of the article in the case of MANA.
+
+Watson Assistant needs very little initial training (a matter of 5 minutes really) to be told some critical entities to detect : e.g. « deforestation », « palm oil expansion », etc…
+
+Thus when Watson Assistant receives those keywords from Watson NLU, if a critical entity is recognised, it finds back the sentence(s) containing it. There are two possibilities : the sentence containing it in the article is either relevant/interesting for MANA, as e.g. : « Company X was accused of deforestation » or not relevant for MANA : « Company Y engaged against deforestation ».
+
+This classification per say of the meaning is therefore performed by the intent, which is the NLC of the chatbot.
+To rephrase it, when the keyword « deforestation » is sent from NLU and recognised as an entity by Watson Assistant, all sentences from the article containing “deforestation” are sent to be classified by the intent (NLC) as relevant or non relevant.
+
+Now, for the very first few sentences, the intent is not trained yet, so human supervision helps classify the sentences containing “deforestation” in the article to train the intents « relevant » or « not relevant ». But as very few phrases are classified, the intents are able to recognize the sentences by themselves without the need for human confirmation.
+
+This way of proceeding facilitates and hence speeds ups the training phase in that there is no need to ingest a previously labelled dataset. We can directly start with the articles at hand and are only asked to classify initially few sentences which contain words that we have filtered (through critical/alerting entities) to be interesting.
+
+Furthermore, these two layers (entity detection and confirmation by the intent of the relevance of the sentence containing it) allows for future reliable unsupervised continuous learning : the intents training being by this process really fine tuned, when a new sentence containing an alerting entity – deforestation in our case – is detected, we can let with little risk this sentence be added as a training example sentence of the intent.
+
+In any case, if ever one sentence was classified in the wrong class, it is very easy through the lean graphical interface of Watson Assistant to detect it and delete it from the training examples.
+
+This flexibility and easy monitoring of the training is why we chose Watson Assistant over any other option.
+
+
 ### Preamble
 
 If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module and the terms/vocabulary associated to it, or the following sections which explain what each module is capable of doing, before guiding you practically to create your own instances to be ble to run the script.
