@@ -340,7 +340,7 @@ IBM very recently released NeuNetS, a Convolutional Neural Network synthesizer, 
 
 ### Development of an OpenSource NLC model
 
-Alexandre Berthet, data scientist at IBM, and I, will explore the implementation of an OpenSource NLC model that is hoped to overcome some previously alluded limitations of Watson NLC. Among others, the Tech for Good enthusiasts community will be sollicited for that purpose.
+Alexandre Berthet, data scientist at IBM, and I, will explore the implementation of an OpenSource NLC model that is hoped to overcome some previously alluded limitations of Watson NLC. In particular, the Tech for Good enthusiasts community will be sollicited for that purpose.
 
 ## Acknowledgments
 
