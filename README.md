@@ -316,6 +316,20 @@ This enables saving time for MANA to supervise and check that the articles were 
 
 An additional capability named Watson Knowledge Studio (WKS) could be plugged at the level of the information returned by NLU that. WKS allows to create custom entities to be recognised by NLU. This becomes really interesting if we want to detect specific/technical vocabulary that would not be recognised by NLU. If we treat articles about chemicals polluting rivers for instance, and that specific chemicals are not recognised as keywords by the semantic analysis of NLU because they are not particularly emphasized in the article, but that we do not want to miss them. Then training a custom entity to detect chemicals (by the semantic position in the sentence) with WKS could be relevant. 
 
+### Watson Discovery Service
+
+WDS is in short a search engine (like Google’s famous one for instance) on your own data that you store. In particular, plugging it could help searching efficiently in the training example sentences of the intents of Watson Assistant. If you quickly want to do a specific search, on a location, on a company, on anything really in the sentences classified as relevant, then WDS would be particularly easy to implement (a matter of few minutes to code). 
+
+### Watson Openscale
+
+Watson Openscale is able to be plugged on blackbox models and give elements of explanation on their behaviour. In particular, on a raw text, Openscale can determine which words made the black box model opt for a specific class or another.  This would therefore be a great way to assess how our NLC, which is essentially a black box raw text classifier, is performing - in order to know how much we can trust it. It should be borne in mind though that, conversely to the training sentences of the intents in Watson Assistant which can be removed if we notice that they were misclassified, we could not (even with Watson Openscale plugged explaining the classification) correct so easily the blackbox NLC.
+
+In the particular case of Watson NLC, a technical specification limits its relevance: only the first 1000 characters of the raw text of the article can be ingested as an training example for the class.
+
+Thus, to be able to ingest the full article text, it may be relevant to experiment with implementing state of the art open source libraries for Random Forest classification, or Convolutional Neural Network.
+IBM very recently released NeuNetS, a Convolutional Neural Network synthesizer, which could also be tested in that case.
+
+
 Latitudes
 
 ## Acknowledgments
