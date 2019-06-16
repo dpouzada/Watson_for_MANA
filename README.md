@@ -45,8 +45,8 @@ Please visit their [website here](https://www.mana-vox.org/)
 
 By treating/processing information (articles, tweets) coming from its unique Network made of:
 
-+1500 sources
-+in 80 languages
+- 1500 sources
+- in 80 languages
 
 > This implies enormous amounts of articles to read through
 
