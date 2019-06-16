@@ -68,9 +68,9 @@ To answer with anticipation, the final solution implemented:
 
 ## What is the solution ?
 
-This algorithm was specifically tailored for MANA in order to classify with highest accuracy articles content as relevant/non relevant information
+This algorithm was specifically tailored for MANA in order to classify with highest accuracy articles content as relevant/non relevant information. It optimizes the classification by orchestrating efficiently the use of several IBM Watson AI.
 
-Please look at the Power Point to better understand the underlying justification for this final solution. It details the genesis of the reasoning, ideation process and trials that allowed to eventually settle after several adjustments to reach that final architecture.
+Please look at the Power Point to better understand the underlying justification for this final solution architecture. It details the genesis of the reasoning, ideation process and trials that allowed to eventually settle after several adjustments to reach that final architecture.
 
 ![schema_architecture](Images/Schema_principe.png)
 
