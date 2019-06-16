@@ -336,8 +336,9 @@ In the particular case of Watson NLC, a technical specification limits its relev
 Thus, to be able to ingest the full article text, it may be relevant to experiment with implementing state of the art open source libraries for Random Forest classification, or Convolutional Neural Network.
 IBM very recently released NeuNetS, a Convolutional Neural Network synthesizer, which could also be tested in that case.
 
+### Development of an OpenSource NLC model
 
-Latitudes
+Alexandre Berthet, data scientist at IBM, and I, will explore the implementation of an OpenSource NLC model that is hoped to overcome some previously alluded limitations of Watson NLC. Among others, the Tech for Good enthusiasts community will be sollicited for that purpose.
 
 ## Acknowledgments
 
