@@ -2,12 +2,14 @@
 
 ![](Images/Presentation.png)
 
-Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations.  With little initial training (less than 100 articles), a result of more than 90% of correct classification was achieved. 
+**Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations.  With little initial training (less than 100 articles), a result of more than 90% of correct classification was achieved.**
 
-How ? 
+##### How ? 
 The specific architecture of this solution tailored for MANA leverages the interplay of Watson modules to achieve this optimized accuracy.
 
-Below is a detailed step by step tutorial to invite you to run by yourself this Watson for MANA algorithm. No prior knowledge at all is expected. It is meant to be achievable by anyone as it is fully self explanatory, following the same pedagogical principle than for instance OpenClassroom.
+*Below is a detailed step by step tutorial to invite you to run by yourself this Watson for MANA algorithm. No prior knowledge at all is expected. It is meant to be achievable by anyone as it is fully self explanatory, following the same pedagogical principle than for instance OpenClassroom.*
+
+##### Open sourced !
 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
@@ -37,20 +39,20 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
 
-Please visit their website at: 
+Please visit their [website here](https://www.mana-vox.org/)
 
-How to achieve this goal ?
+##### How to achieve this goal ?
 
 By treating/processing information (articles, tweets) coming from its unique Network made of:
 
-1500 sources
-in 80 languages
++1500 sources
++in 80 languages
 
-=> Enormous amounts of articles to read through
+> This implies enormous amounts of articles to read through
 
-Problem: It is (linearly) costly in time for human beings to read the articles
+> Problem: It is (linearly) costly in time for human beings to read the articles
 
-Solution: Watson Artificial Intelligence processing power can dramatically reduce the workload 
+**Solution: Watson Artificial Intelligence processing power can dramatically reduce the workload **
 
 ## A very general classification problem
 
@@ -60,7 +62,10 @@ In practice this amounts to a very typical classification task.
 
 In our case, "relevant" information is when environmental impact by a corporation (e.g. deforestation resulting from palm oil industry, etc..) is detected in an article. Irrelevant is when no such information is present in the article.
 
+##### Technical specifications from MANA
+
 Now, the requirements of the solution to be designed were:
+
 - As user friendly and transparent as possible insofar as MANA staff is non technical and not comfortable with looking at the code to understand its behaviour, make adaptations or tuning parameters by investigating themselves the output. 
 - Highly customizable and monitorable. The aim was to be able to have levers instead of a pure black box model which would work very well only for articles on a specific topic dealt with in the training datasets but not able to adapt when tackling new topics.
 
@@ -70,18 +75,22 @@ To answer with anticipation, the final solution implemented:
 
 ## What is the solution ?
 
-This algorithm was specifically tailored for MANA in order to classify with highest accuracy articles content as relevant/non relevant information. It optimizes the classification by orchestrating efficiently the use of several IBM Watson AI.
 
-Please look at the Power Point to better understand the underlying justification for this final solution architecture. It details the genesis of the reasoning, ideation process and trials that allowed to eventually settle after several adjustments to reach that final architecture.
+### Preamble
+
+If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module and the terms/vocabulary associated to it, or the following sections which explain briefly what each module is capable of doing before guiding you practically with creating your own instances to be ble to run the script.
+
+### The architecture
+
+This architecture was specifically tailored for MANA in order to classify with highest accuracy articles content as relevant/non relevant information. It optimizes the classification by orchestrating efficiently the use of several IBM Watson AI.
+
+
 
 ![schema_architecture](Images/Schema_principe.png)
 
-Now, an additional feature of the script that did not fit in this overwhelming architecture schema:
-One limitation in the keyword recognition is that alerting entities have to be pre-filled manually on Watson Assistant interface by the user. Those manually informed alerting entities aim to make sure 100% not to miss those words like deforestation, environmental destruction, etc... To compensate for the fact that the user may not be able to guess all relevant keywords he wants to fill as alerting entities (to make sure 100% not to miss those words, like deforestation, environmental destruction, etc...) on a given set of articles. A prospection function was added. This prospection function treats all articles and informs back of the most recurring keywords, as a suggestion for the user who might recognise some relevant keywords to be added. This function is all the more useful when alerting entities are within one field, for instance the theme of deforestation and all its synonyms. And that a new set of articles of another field are to be treated. For instance about river pollution. Then the user may want to prospect the articles to be given an idea of the relevant alerting entities to add.
+If interested in the underlying reasoning that led to this final solution algorithm, please look at the Power Point that details the genesis of ideation process and trials that allowed to eventually reach, after several adjustments, that final architecture.
 
-Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This allows the user to make observations about the alerting entities which are most relevant to keep in that they were most sollicited.
-
-### Verbose Explanations on the big steps of the algorithm and the justification of the architecture
+### Verbose Explanations of the big steps of the algorithm & the justification of the architecture
 
 First and foremost, the raw text of the article is translated to English if necessary and sent to NLU.
 
@@ -100,21 +109,25 @@ To rephrase it, when the keyword « deforestation » is sent from NLU and recogn
 
 Now, for the very first few sentences, the intent is not trained yet, so human supervision helps classify the sentences containing “deforestation” in the article to train the intents « relevant » or « not relevant ». But as very few phrases are classified, the intents are able to recognize the sentences by themselves without the need for human confirmation.
 
-This way of proceeding facilitates and hence speeds ups the training phase in that there is no need to ingest a previously labelled dataset. We can directly start with the articles at hand and are only asked to classify initially few sentences which contain words that we have filtered (through critical/alerting entities) to be interesting.
+###### Why is this two-fold classification process with Watson Assistant convenient and powerful ?
 
-Furthermore, these two layers (entity detection and confirmation by the intent of the relevance of the sentence containing it) allows for future reliable unsupervised continuous learning : the intents training being by this process really fine tuned, when a new sentence containing an alerting entity – deforestation in our case – is detected, we can let with little risk this sentence be added as a training example sentence of the intent.
+This way of proceeding facilitates and hence speeds ups the training phase in that there is no need to ingest a previously labelled dataset. We can directly start with the articles at hand and are only asked to classify initially few sentences which contain words that we have filtered (through critical/alerting entities) to be interesting. 
+
+Furthermore, these two layers (entity detection and confirmation by the intent of the relevance of the sentence containing it) allows for **future reliable unsupervised continuous learning : the intents training being by this process really fine tuned, when a new sentence containing an alerting entity – deforestation in our case – is detected, we can let with little risk this sentence be added as a training example sentence of the intent.**
 
 In any case, if ever one sentence was classified in the wrong class, it is very easy through the lean graphical interface of Watson Assistant to detect it and delete it from the training examples.
 
 This flexibility and easy monitoring of the training is why we chose Watson Assistant over any other option.
 
-#### What makes the trick
+#### The trick: not only entities can be detected at first by Watson Assistant
 
 This architecture allows to implement a feature that becomes very advantageous : as the intents training is sufficient, they can start to recognize directly the keywords. In fact, say e.g. that many training sentences in the intents contain the mention of the “Indonesian rainforest”. Then it is very likely that if a keyword sent from NLU is « Indonesian » or « rainforest », which were not previously defined as alerting entities, it will be detected directly by the intents although it did not trigger entities detection.
-The whole process would in this case be repeated: the sentences in the article containing indonesian or rainforest are sent again to those same intents for classification, to determine whether the whole sentence is relevant or not. This situation frequency will significantly increase (as opposed to mere alerting entity detection) as the intents get more and more trained.
+The whole process is in this case be repeated: the sentences in the article containing indonesian or rainforest are sent again to those same intents for classification, to determine whether the whole sentence is relevant or not. This situation frequency will significantly increase (as opposed to mere alerting entity detection) as the intents get more and more trained.
 
 Therefore, this combined use of the top performing AI bricks of Watson : namely keywords extraction from NLU plugged to an astute two fold classification by Watson Assistant, allows for a very fast training, which can moreover reliably be left to autonomous continuous learning, and overall easily monitored through Watson Assistant very practical user interface.
 To rephrase in other words the strengths of the architecture of MANA text classification algorithm: keywords extraction (50 keywords are generated for an average three pages long article) allows efficient extraction of the main articles information, while Watson Assistant allows to keep the fine tuning of a sentence by sentence final classification (with an interesting control through the filter of entities).
+
+##### Supervision
 
 All steps in the previously explained algorithm can be supervised or left unsupervised during execution:
 •	Asking when an entity is detected whether it is relevant to do so. 
@@ -148,17 +161,21 @@ Yet, it is hoped to be more powerful when scaling, allowing to classify a whole 
 
 In fact, it is essentially a black box: the correlations it draws from its training data to classify the raw text of the article as relevant or not can sometimes be extremely powerful or completely absurd, without us really knowing a priori.
 
+#### Overcoming the limitations of Watson Assistant entities
+
+One limitation in the keyword recognition by Watson Assistant is that alerting entities have to be pre-filled manually (on Watson Assistant interface) by the user. Those manually informed alerting entities aim to make sure 100% not to miss those words like deforestation, environmental destruction, etc... 
+
+To compensate for the fact that the user may not be able to guess all relevant keywords to fill as alerting entities (to make sure 100% not to miss those words, like deforestation, environmental destruction, etc...) on a given set of articles, a prospection function was added. This prospection function treats all articles and informs back of the most recurring keywords, as a suggestion for the user who might recognise some relevant keywords to be added. 
+This function is all the more useful when alerting entities are within one field, for instance the theme of deforestation and all its synonyms. Then when a new set of articles of another field are to be treated, for instance about river pollution, the user cqn leverage this prospection of keywords of the new articles to be given suggestions of the relevant alerting entities to add.
+
+Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This also allows the user to make observations about the alerting entities which are most relevant to keep in that they were most sollicited.
+
 #### Conclusion on the architecture
 
 As a conclusion, it is important to note that the tailored orchestration of NLU + Watson Assistant and the black box NLC approach are not in competition, they are complementary:
 NLU + Watson Assistant are fine tuned filters, able to detect relevant sentences. But even though they do not detect any, the entire article is in last resort sent to the black box NLC.
 
 This black box NLC can be trained from scratched with raw text of all already classified articles. We can be legitimately be optimistic that in the long term it will start performing very well, having in the meantime benefitted strongly from the highly relevant training sentences of the intents of Watson Assistant.
-
-
-### Preamble
-
-If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module and the terms/vocabulary associated to it, or the following sections which explain briefly what each module is capable of doing before guiding you practically with creating your own instances to be ble to run the script.
 
 ## Step by step guide to run the script
 
