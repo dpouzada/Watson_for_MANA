@@ -29,7 +29,7 @@ from ibm_watson.natural_language_understanding_v1 \
 def input_file_to_treat_with_cells():
     namefile_to_treat=input("Please type the precise name of the file containing the articles you want to treat\n")
     # We prepare the object sheet for reading the excel file
-    flag_file_correct=0
+    flag_file_correct=0 
     while (flag_file_correct==0):
         try:
             loc = (namefile_to_treat) 
