@@ -244,7 +244,7 @@ What makes Watson Assistant an extremely interesting fundamental brick to levera
 
 ## How to create your own Watson Assistant instance
 
-Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
+Analogously to what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
 
 ```
 assistant = watson_developer_cloud.AssistantV1(
@@ -384,7 +384,13 @@ Remark: The cloud function keeps training the intents of Watson Assistant withou
 
 ## How to adapt the script to create your own “Watson for good” use cases
 
-Essentially, you
+Essentially, you may have already understood that whichever the type of information you consider relevant, you can without any problem reuse this architecture. 
+
+All you need to do is to adapt the entities to your subject by filling the type of keywords you absolutely do not want to miss, and also delete past example sentences of the intents in Watson Assistant skill MANA orchestrator (keep it in that it has the righ dialog flow).
+
+Then fill an excel file with your own articles, full text on the left column and on the right column 0 or 1 (for the first phase locally without deploying) cloud function. 
+
+You will realise how fast you can train and get some accurate results on your own subjects !
 
 ## How to visualise the final result
 
@@ -394,13 +400,20 @@ To visualize the final result, you can either use the vba macro from the excel f
 
 ### The "harder but nicer" way
 
- I invite you to run the notebook in Watson Studio to display all articles inthe nicest way.
- In fact, as you can observe in the video below, which shows the process to do so, you will be able at the end to recover the full texts with relevant sentences and keywords highlighted directly (instead of stored in separate columns in the excel files).
+ I invite you to run the Jupyter notebook in Watson Studio to display all articles inthe nicest way.
+ 
+ #### What is Watson Studio and how to create your account ?
+
+Watson Studio is platform that has plenty to offer to data scientists, from data management and treatment, to processing power on the cloud to run ML/DL models from open source libraries, or plenty of other options (SPSS, etc...). As we saw just above, it also offers the handy possibility to run Jupyter notebooks.
+
+Analogously to what we did above with other Watson modules, on the "AI" section of the "Catalog" of your IBM Cloud account, you can create an instance of Watson Studio and then click on `Get started`.
+
+#### How does it look then ?
+
+In fact, as you can observe in the video below, which shows the process to do so, you will be able through this notebook to recover the full texts with relevant sentences and keywords highlighted directly (instead of stored in separate columns in the excel files).
  An additional advantage allowed by this display noebook is the scroll down that allows you to only see the full texts of the articles you are interestes in, and not necessarily all texts as in Excel.
  
 [![](Images/Notebook_display.png)](https://www.youtube.com/watch?v=pxZzA1taipc)
-
-### What is Watson Studio and how to create your account ?
 
 
 ## Conclusion
@@ -411,6 +424,8 @@ Not only has it answered the initial challenge of classifying with accuracy text
 This enables saving time for MANA to supervise and check that the articles were correctly classified, and to the end user of this information who can also directly go to the point.
 
 ## Improvements to come
+
+Several additional Watson services could be plugged to the current solution to improve its features and efficiency.
 
 ### Watson Knowledge Studio
 
@@ -435,5 +450,6 @@ Alexandre Berthet, data scientist at IBM, and I, will explore the implementation
 
 ## Acknowledgments
 
-On IBM side, thanks to Ramzi ben Ouagram and Vincent Perrin for allowing the project to develop. Thanks to Alexandre Berthet who supported actively the practical implementation for MANA of this solution, and is working on the improvement to bring it to next level.
+On IBM side, great thanks to Ramzi ben Ouaghram and Vincent Perrin for allowing the project to develop. great thanks as well to Alexandre Berthet who lately supported actively the practical implementation on the CLoud function of this solution, and is working on the improvement to bring it to next level.
+
 On MANA side, thanks to Gabrielle Garmier and Capucine Lebois for their energy and pedagogy in collaborating to implement this solution together, and to the founder Kiti Mignotte for her support.
