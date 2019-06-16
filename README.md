@@ -218,7 +218,8 @@ Now that you just created your instance, click on Manage and you can already cop
 
 For this, you just need to insert your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below:
 
-```naturalLanguageUnderstanding = NaturalLanguageUnderstandingV1(
+```
+naturalLanguageUnderstanding = NaturalLanguageUnderstandingV1(
     version='2018-11-16',
     iam_apikey='xxx',
     url='https://gateway-fra.watsonplatform.net/natural-language-understanding/api'
@@ -245,7 +246,8 @@ What makes Watson Assistant an extremely interesting fundamental brick to levera
 
 Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
 
-```assistant = watson_developer_cloud.AssistantV1(
+```
+assistant = watson_developer_cloud.AssistantV1(
     iam_apikey='xxx',
     version='2018-09-20',
     url='https://gateway-fra.watsonplatform.net/assistant/api'
@@ -279,7 +281,8 @@ This pure, external/independent Watson NLC service (not embedded in Watson Assis
 
 Exactly same process as above, create from the catalog your instance (in Frankfurt in my case) and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
 
-```natural_language_classifier = NaturalLanguageClassifierV1(
+```
+natural_language_classifier = NaturalLanguageClassifierV1(
     iam_apikey='xxx',
 url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
 ```
@@ -290,7 +293,8 @@ url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
 No need to explain hopefully what the translator does. We will need it to treat articles from 80 languages for MANA ! 
 Again same process, just create an instance and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
 
-```language_translator = LanguageTranslatorV3(
+```
+language_translator = LanguageTranslatorV3(
 version='2018-05-01',
 url='https://gateway-fra.watsonplatform.net/language-translator/api',
 iam_apikey='xxx'
