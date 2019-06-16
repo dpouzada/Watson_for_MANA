@@ -2,7 +2,7 @@ import http.client
 import json
 
 conn = http.client.HTTPSConnection("f4f42dee.us-south.apiconnect.appdomain.cloud")
-
+ 
 # Test 1 - Article MANA court
 payload_1 = "{\"text\":\"PepsiCo, Kellogg's slammed for concealing palm oil secrets. Your favourite packet of chips or muesli bar snack could contain palm oil – a $65 billion industry which is destroying rainforests and threatening the survival of orangutan populations. But it is impossible for consumers to know for certain because popular brands such as PepsiCo (Doritos, Twisties) and Kellogg’s (Cornflakes, Nutri Grain) have refused to reveal to The New Daily which of their products contain palm oil. Environmental advocacy body Greenpeace released a report this week revealing that half of 16 companies that pledged in 2010 to eliminate deforestation from palm oil by 2020 had failed to disclose where they source their palm oil almost 10 years later.\"}"
 
