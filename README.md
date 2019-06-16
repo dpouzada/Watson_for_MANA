@@ -12,14 +12,13 @@ The specific architecture of this solution tailored for MANA leverages the inter
 ##### Open sourced !
 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
+
+
 - [Machine Learning used to preserve the Environment](#Machine-Learning-used-to-preserve-the-Environment)
         - [How ?](#How-?)
-      - [# How ?](##-How-?)
         - [Open sourced !](#Open-sourced-!)
-      - [# Open sourced !](##-Open-sourced-!)
   - [Challenge definition](#Challenge-definition)
         - [How to achieve this goal ?](#How-to-achieve-this-goal-?)
-      - [# How to achieve this goal ?](##-How-to-achieve-this-goal-?)
   - [A very general classification problem](#A-very-general-classification-problem)
       - [Technical specifications from MANA](#Technical-specifications-from-MANA)
   - [What is the solution ?](#What-is-the-solution-?)
@@ -52,9 +51,7 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
       - [Let's detail here what is done during this execution:](#Let's-detail-here-what-is-done-during-this-execution:)
       - [Some more explanations on the input file](#Some-more-explanations-on-the-input-file)
         - [Why proceed that way ? (As if it were a test set)](#Why-proceed-that-way-?-(As-if-it-were-a-test-set))
-      - [# Why proceed that way ? (As if it were a test set)](##-Why-proceed-that-way-?-(As-if-it-were-a-test-set))
         - [Now, let us come back to the execution:](#Now,-let-us-come-back-to-the-execution:)
-      - [# Now, let us come back to the execution:](##-Now,-let-us-come-back-to-the-execution:)
     - [The end of the execution](#The-end-of-the-execution)
       - [Important advice here](#Important-advice-here)
       - [Personal technique](#Personal-technique)
