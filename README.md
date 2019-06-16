@@ -128,6 +128,17 @@ General intro of what it's capable of and what you can do with it
 
 I encourage you to learn how to design your own assistant with ... tutorial
 
+### Why use Watson Assistant here ?
+
+Watson Assistant is generally used for building chatbots. However, it can be used quite differently, as it is essentially composed of a Natural Language classifier (NLC) with classes defined as « intents ».
+
+It also incorporates an exact word detection of so called « entities ».
+
+The intents work essentially as NLC, namely they are able to classify new formulations of a sentence by extrapolating from previous training sentences with similar meaning. Watson has indeed been trained on thousands of articles in the web, among which many wikipedia articles. The entity are not NLC but just exact word recognition.
+
+What makes Watson Assistant an extremely interesting fundamental brick to leverage is that it is one of the best performing assets in the market. The intent classification (NLC) is very competitive (with an aggressive roadmap of improvements as the product is hugely sold to industries) and it is very well embedded in a graphical user interface allowing to easily monitor the example sentences to train the intents and entities.
+
+
 ## How to create your own Watson Assistant instance
 
 Analogously yo what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
@@ -154,7 +165,9 @@ Hopefully, the video below should help you in the steps explained before of impo
 
 ## Watson Natural Language Classifier
 
-What is it ?
+This pure, external/independent Watson NLC service (not embedded in Watson Assistant) is built with a better scaling statistical model (neural network behind) than Watson Assistant. This capability was designed primarily to ingest and treat enormous amounts of data. It is less flexible than the intents/NLC in Watson Assistant, with significantly longer and less practical training procedures, but with the advantage of being able to draw more powerfully correlations when massive data is ingested and submitted to be classified. It is therefore best suited for raw text.
+
+## How to create your own Watson NLC instance
 
 Exactly same process as above, create from the catalog your instance (in Frankfurt in my case) and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
 
