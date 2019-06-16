@@ -156,7 +156,7 @@ This black box NLC can be trained from scratched with raw text of all already cl
 
 ### Preamble
 
-If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module and the terms/vocabulary associated to it, or the following sections which explain what each module is capable of doing, before guiding you practically to create your own instances to be ble to run the script.
+If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module and the terms/vocabulary associated to it, or the following sections which explain briefly what each module is capable of doing before guiding you practically with creating your own instances to be ble to run the script.
 
 ## Step by step guide to run the script
 
