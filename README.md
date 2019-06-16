@@ -1,5 +1,7 @@
 # AI for the Environment - Watson for MANA
 
+![](Images/Presentation.png)
+
 Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations.  With little initial training (less than 100 articles), a result of more than 90% of correct classification was achieved. 
 
 How ? 
