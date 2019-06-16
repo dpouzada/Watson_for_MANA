@@ -68,6 +68,8 @@ To answer with anticipation, the final solution implemented:
 
 ## What is the solution ?
 
+This algorithm was specifically tailored for MANA in order to classify with highest accuracy articles content as relevant/non relevant information
+
 Please look at the Power Point to better understand the underlying justification for this final solution. It details the genesis of the reasoning, ideation process and trials that allowed to eventually settle after several adjustments to reach that final architecture.
 
 ![schema_architecture](Images/Schema_principe.png)
@@ -79,7 +81,7 @@ Likewise at the end of the execution, all keywords associated to sentences which
 
 ### Preamble
 
-If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module, or the following sections which explain what each module is capable of doing, before guiding you practically to create your own instances to be ble to run the script.
+If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module and the terms/vocabulary associated to it, or the following sections which explain what each module is capable of doing, before guiding you practically to create your own instances to be ble to run the script.
 
 ## Step by step guide to run the script
 
@@ -93,15 +95,15 @@ Also download the file Instances_Watson_modules.py where we will insert your cre
 
 ## Watson Natural Language Understanding
 
-In short, this module allows you to extract Metadata (structured data) from an unstructured text: 
+In short, this module allows you to extract metadata, as attributes and indicators (which represent structured data) from an unstructured raw text. In particular, it provides you with: 
 - Sentiment, Emotion
 - Keywords
-- Entities
+- Entities (referring to Locations, people, companies, etc...)
 - Categories, Concepts
 - Syntax
 - Semantic Roles
 
-Please consult the demo page to visualise by yourself what Watson NLU is capable of doing.
+Please consult the [demo page here](https://natural-language-understanding-demo.ng.bluemix.net/) to visualise by yourself what Watson NLU is capable of doing.
 
 ### How to create your own Watson NLU instance
 
