@@ -106,6 +106,38 @@ In any case, if ever one sentence was classified in the wrong class, it is very 
 
 This flexibility and easy monitoring of the training is why we chose Watson Assistant over any other option.
 
+#### What makes the trick
+
+This architecture allows to implement a feature that becomes very advantageous : as the intents training is sufficient, they can start to recognize directly the keywords. In fact, say e.g. that many training sentences in the intents contain the mention of the “Indonesian rainforest”. Then it is very likely that if a keyword sent from NLU is « Indonesian » or « rainforest », which were not previously defined as alerting entities, it will be detected directly by the intents although it did not trigger entities detection.
+The whole process would in this case be repeated: the sentences in the article containing indonesian or rainforest are sent again to those same intents for classification, to determine whether the whole sentence is relevant or not. This situation frequency will significantly increase (as opposed to mere alerting entity detection) as the intents get more and more trained.
+
+Therefore, this combined use of the top performing AI bricks of Watson : namely keywords extraction from NLU plugged to an astute two fold classification by Watson Assistant, allows for a very fast training, which can moreover reliably be left to autonomous continuous learning, and overall easily monitored through Watson Assistant very practical user interface.
+To rephrase in other words the strengths of the architecture of MANA text classification algorithm: keywords extraction (50 keywords are generated for an average three pages long article) allows efficient extraction of the main articles information, while Watson Assistant allows to keep the fine tuning of a sentence by sentence final classification (with an interesting control through the filter of entities).
+
+All steps in the previously explained algorithm can be supervised or left unsupervised during execution:
+•	Asking when an entity is detected whether it is relevant to do so. 
+•	Asking whether a sentence was correctly classified by the intents. 
+•	Asking whether the intent should be trained or not with this last classified sentence
+
+There are also functions allowing to report the keywords that appeared most frequently in some articles in prospection, and as well systematically in the articles which have already been treated, so that the filter of alerting entities can be manually fine tuned in the light of those suggestions.
+
+The result of this first treatment is that all relevant sentences in the article are stored and localized, which is far better than just classifying the entire article.
+
+There are yet on this first part of the algorithm many possible improvements/fine tuning coming from a more extensive use of the information provided by NLU treatment of the article. This is especially true for the ordering of the relevant articles.
+
+Namely, through testing phases it is possible to determine and adjust the weight to give to the emotions and sentiment, and to the « Company » entity detected at first as well. Also, the author/source might receive a weight, as well as possibly the confidence score of the enrichment.
+
+Those are all very straightforward adaptations to make to the algorithm but take time to be tested for efficiency improvement. This is basically be an empiric fine tuning of parameters through testing.
+
+All these parameters have to be given a weight to order the article.
+Should the ordering be mostly based on ?
+1.	how many sentences in total in the article were classified as relevant
+2.	What were the emotion score attributed by NLU attached to the keywords in sentences classified as relevant
+3.	The author source
+4.	The location… (the location and company could also easily help to store the whole article in different files)
+A weighted average of all of these probably, to determine through testing.
+
+
 
 ### Preamble
 
