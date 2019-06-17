@@ -489,6 +489,6 @@ Alexandre Berthet, data scientist at IBM, and I, will explore the implementation
 
 ## Acknowledgments
 
-On IBM side, great thanks to Ramzi ben Ouaghram and Vincent Perrin, resp. boss and mentor, for allowing me to get involved in the project. Great thanks as well to colleague and friend Alexandre Berthet who has been essential in supporting the deployment of the CLoud function of this solution, and who is already anticipating next steps by working on the improvement to bring the current solution to the next level.
+On IBM side, great thanks to Ramzi ben Ouaghram and Vincent Perrin, respectively boss and mentor, for allowing me to get involved in the project. Great thanks as well to colleague and friend Alexandre Berthet who has been essential in supporting the deployment of the CLoud function of this solution, and who is already anticipating next steps of the improvement to bring the solution to the next level.
 
-On MANA side, thanks to Gabrielle Garmier and Capucine Lebois - with her positive smile :) - for their energy and pedagogy in collaborating to design and implement this solution together. Thanks to the founder of MANA, Kiti Mignotte, for her encouragement and support all along.
+On MANA side, thanks to Gabrielle Garmier and Capucine Lebois - with her positive smile :) - for their energy and pedagogy in collaborating to design and implement this solution together. Thanks to the founder of MANA, Kiti Mignotte, for her encouragement and support since our first encounter.
