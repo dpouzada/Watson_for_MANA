@@ -435,11 +435,11 @@ You will realise how fast you can train and get some accurate results on your ow
 
 ### The "easy but limited" way
 
-To visualize the final result, you can either use the vba macro from the excel file "Visualisation Articles Watson fro MANA.xlsm. In fact by running the macro "load MANA articles", or the shortcut Ctrl + Shift + L, all articles which are stored in your .tsv file will loaded and displayed in a neat column formatted. Important for the macro to work is that the excl file is in the same folder as your .tsv files.
+To visualize the final result, you can either use the vba macro from the excel file "Visualisation Articles Watson for MANA.xlsm. In fact by running the macro "load MANA articles", activated by the shortcut Ctrl + Shift + L, all articles which are stored in your .tsv files will be loaded and displayed in neat formatted columns. Important for the macro to work is that the excel file is in the same folder as your .tsv files.
 
 ### The "harder but nicer" way
 
- I invite you to run the Jupyter notebook in Watson Studio to display all articles inthe nicest way.
+ I invite you to run the Jupyter notebook in Watson Studio to display all articles in a much nicer way.
  
  #### What is Watson Studio and how to create your account ?
 
@@ -489,6 +489,6 @@ Alexandre Berthet, data scientist at IBM, and I, will explore the implementation
 
 ## Acknowledgments
 
-On IBM side, great thanks to Ramzi ben Ouaghram and Vincent Perrin for allowing the project to develop. great thanks as well to Alexandre Berthet who lately supported actively the practical implementation on the CLoud function of this solution, and is working on the improvement to bring it to next level.
+On IBM side, great thanks to Ramzi ben Ouaghram and Vincent Perrin, resp. boss and mentor, for allowing me to get involved in the project. Great thanks as well to colleague and friend Alexandre Berthet who has been essential in supporting the deployment of the CLoud function of this solution, and who is already anticipating next steps by working on the improvement to bring the current solution to the next level.
 
-On MANA side, thanks to Gabrielle Garmier and Capucine Lebois for their energy and pedagogy in collaborating to implement this solution together, and to the founder Kiti Mignotte for her support.
+On MANA side, thanks to Gabrielle Garmier and Capucine Lebois - with her positive smile :) - for their energy and pedagogy in collaborating to design and implement this solution together. Thanks to the founder of MANA, Kiti Mignotte, for her encouragement and support all along.
