@@ -212,7 +212,7 @@ The result of this first treatment is that all relevant sentences in the article
 
 #### Watson independent NLC model in last resort
 
-Yet, considering the scalability but also because it is possible that the keywords identified by NLU from the article do not trigger any alerting entity or intent detection from Watson assistant, the algorithm leverages the power of a pure NLC capability through the API of Watson NLC service.
+Yet, considering the scalability but also because it is possible that the keywords identified by NLU from the article do not trigger any alerting entity or intent detection from Watson assistant, the algorithm leverages the power of a pure NLC capability through the API of Watson NLC service. Even though NLU + Watson Assistant do not detect any relevant sentences, the entire article is in last resort sent to the black box NLC.
 
 Watson NLC service is trained with all the example sentences in the intents of Watson Assistant (which are very accurate relevant sentences, hence of great training value), but also with the full raw text of the article already classified. This redundance between the relevant sentences taken from the intents and the full articles contents already containing them, helps "guide the model" towards learning what really makes an article relevant. Watson NLC promises better scalability and performance by essence of its neural network structure, but its costly training and practical difficulty to retrain, update nor monitor, limits its performance.
 
@@ -226,9 +226,9 @@ Furthermore, until a substantial size of the training dataset is reached, its pe
 
 As a conclusion, it is important to note that the tailored orchestration of NLU + Watson Assistant and the black box NLC approach are not in competition, they are completely complementary:
 
-NLU + Watson Assistant are fine tuned filters, able to detect relevant sentences. But even though they do not detect any, the entire article is in last resort sent to the black box NLC.
+NLU + Watson Assistant are fine tuned filters, able to detect relevant sentences, while the black box NLC is used as a final layer taking as an input the full article.
 
-This black box NLC can be trained from scratch with raw text of all already classified articles. We can be legitimately be optimistic that in the long term it will start performing very well, having in the meantime benefitted strongly from the highly relevant training sentences of the intents of Watson Assistant.
+This last resort black box NLC can be trained from scratch with raw text of all already classified articles. We can be legitimately be optimistic that in the long term it will start performing very well, having in the meantime benefitted strongly from the highly relevant training sentences of the intents of Watson Assistant.
 
 
 ## Step by step guide to run the script
