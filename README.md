@@ -2,14 +2,14 @@
 
 ![](Images/Presentation.png)
 
-**Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations.  With little initial training (less than 100 articles), a result of more than 90% of correct classification was achieved.**
+**Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations.  With little initial training (about 100 articles), a result of more than 80% of correct classification was achieved on test datasets.**
 
 ##### How ? 
 The specific architecture of this solution tailored for MANA leverages the interplay of Watson modules to achieve this optimized accuracy.
 
-*Below is a detailed step by step tutorial to invite you to run by yourself this Watson for MANA algorithm. No prior knowledge at all is expected. It is meant to be achievable by anyone as it is fully self explanatory, following the same pedagogical principle than for instance OpenClassroom.*
+*Below is a detailed step by step tutorial to invite you to run by yourself this Watson for MANA algorithm. No prior knowledge at all is expected. It is meant to be achievable by anyone as it is fully self explanatory, following the same pedagogical principle than for instance OpenClassroom approach.*
 
-##### Open sourced !
+##### (Soon to be) Open sourced !
 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
@@ -76,7 +76,7 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
 
-Please visit their [website here](https://www.mana-vox.org/)
+Please visit their [website here](https://www.mana-vox.org/) !
 
 ##### How to achieve this goal ?
 
@@ -85,7 +85,7 @@ By treating/processing information (articles, tweets) coming from its unique Net
 - 1500 sources
 - in 80 languages
 
-> This implies enormous amounts of articles to read through
+This implies enormous amounts of articles to read through.
 
 > Problem: It is (linearly) costly in time for human beings to read the articles
 
@@ -103,19 +103,19 @@ In our case, "relevant" information is when environmental impact by a corporatio
 
 The requirements of the solution to be designed were:
 
-- As user friendly and transparent as possible insofar as MANA staff is non technical and not comfortable with looking at the code to understand its behaviour, make adaptations or tuning parameters by investigating themselves the output. 
-- Highly customizable and monitorable. The aim was to be able to have levers instead of a pure black box model which would work very well only for articles on a specific topic dealt with in the training datasets but not able to adapt when tackling new topics.
+- As user friendly and transparent as possible insofar as MANA staff is non technical and not comfortable with looking at the code to understand its behaviour, make adaptations or tune parameters by running tests as data scientists would to investigate the effects on the output. 
+- Highly customizable and monitorable. The aim was to be able to have levers instead of directly a pure black box model which would work very well only for articles on a specific topic dealt with in the training datasets but not able to adapt when tackling new topics.
 
-To answer with anticipation, the final solution implemented: 
-1) explicitly displays on the screen every single major processing done for the user to be able to understand/follow it
-2) The final architecture keeps best flexibility possible by optimizing the trade off between the speed of learning and the scaling power of the pure ML approach
+To answer with anticipation, the final solution implemented with Watson: 
+1) Explicitly displays on the screen every single major processing step done for the user to be able to understand/follow it
+2) The final architecture keeps best flexibility possible given the above constraints by optimizing the trade off between the speed of learning and the scaling power of the pure ML approach
 
 ## What is the solution ?
 
 
 ### Preamble
 
-If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear understandable. In that case, I invite you either to consult the PPT which introduces each module and the terms/vocabulary associated to it, or the following sections which explain briefly what each module is capable of doing before guiding you practically with creating your own instances to be ble to run the script.
+If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear readily understandable. In that case, I invite you either to consult the [PPT on the rationale](MANA_rationale.pptx)  which introduces each module and the terms/vocabulary associated to it, or the following sections which explain briefly what each module is capable of doing before guiding you practically with creating your own instances to be ble to run the script.
 
 ### The architecture
 
