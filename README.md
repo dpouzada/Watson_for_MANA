@@ -413,15 +413,16 @@ Once the prospection on keywords is done (if the user wanted to do it as it is o
 
 Please come back in the [architecture schema](the-architecture) to red annotated arrows and text to visualize that you have control over:
 
-1)	Whether you want to confirm each time if it is correct for Watson Assistant to be detecting a specific alerting entity. Answer N for No if you trust your entities settings on Watson Assistant interface. Still, if you are experimenting with them, although confirmation may be tedious at the beginning, it truly allows you to observe which entities are most detected and reflect whether it is relevant to keep them. If you want to remove an entity detection from Watson Assistant, simply go on Watson Assistant entity interface as [shown previously]() and make your adjustments directly from there. 
-2)	Whether you want to confirm each time if a classification by Watson Assistant intents was correct or not. This is a crucial supervision that you may want to keep in the early stages and even later on to check that the intents classification is behaving well enough. Again coming back to the [architecture schema](), you can see that it is this step that determines whether a sentence is kept as relevant or not. It is where the machine learning classification operates, and it is crucial for the accuracy to make sure this classification is working correctly.
-3)	Following the point 2) is the training of the intents with this same sentence just classified. If the classification was correct, then no problem obviously. If it was not, training with this wrong sentence will strengthen the future mistakes. It is therefore advocated to be supervising point 2) at the beginning, in which case no need to supervise 3)
-4)	In case you do not want to send the article in last resort to Watson NLC (or that you have issues with your instance), you can keep this supervised. A remark here is that even though one sentence at least was classified as relevant for MANA by Watson Assistant, the article is still sent to Watson NLC. In fact, it still allows to compare the results. As explained previously, Watson NLC classification on the whole text is expected to be more coarse than Watson Assistant sentence by sentence classification. This is implicitly why Watson NLC was kept only in last resort, in case Watson Assistant did not keep any sentence. But checking what is Watson NLC response even though Watson Assistant has already determined (with expected more reliability) that the article was relevant – as one sentence at least was – is still very interesting to assess the performance of Watson NLC. As there starts to be more and more agreement between Watson NLC and Watson Assistant, it means the Watson NLC converges towards a good training, and that overall the solution is gaining consistency.
-5)	Store the article in the ad hoc file or not if relevant for MANA
-6)	Store the article in the ad hoc file or not if not relevant for MANA
-Those settings have meaning in that you might want just to experiment on a list of articles without saving them. In that case the execution will still tell you what success rate in classification it got. But no articles will have been stored.
-7)	How many keywords (extracted by NLU) to send for each article. This is a very important setting. The processing time increases linearly with the number of keywords sent. Yet, sending less than 10 keywords would not be accurate enough. An option will be developed soon here to allow the user, in particular in the case when the article is short enough, to send all sentences to Watson Assistant. Those might be less than 10, therefore make it faster than sending the 10 first keywords. Tests will be run for this option.
-Then the execution proceeds accordingly to [architecture schema](). Every important operation done is displayed on the terminal so that one can follow even though leaving most steps unsupervised.
+1)	Whether you want to confirm each time if it is correct for Watson Assistant to be detecting a specific alerting entity. Answer N for No if you trust your entities settings on Watson Assistant interface. Still, if you are experimenting with them, although confirmation may be tedious at the beginning, it truly allows you to observe which entities are most detected and reflect whether it is relevant to keep them. If you want to remove an entity detection from Watson Assistant, simply go on Watson Assistant entity interface as shown previously in the demo video of Watson Assistant, and make your adjustments directly from there. 
+2)	Whether you want to confirm each time if a classification by Watson Assistant intents was correct or not. This is a crucial supervision that you may want to keep in the early stages and even later on to check that the intents classification is behaving well enough. Again coming back to the architecture schema, you can see that it is this step that determines whether a sentence is kept as relevant or not. It is where the classification operates, and it is crucial for the accuracy to make sure this classification is performing correctly.
+3)	Following the last point is the training of the intents with this same sentence just classified. If the classification was correct, then no problem obviously. If it was not, training with this wrong sentence will strengthen the future mistakes. It is therefore advocated to be supervising point 2) at the beginning, in which case no need to supervise 3).
+4)	In case you do not want to send the article in last resort to Watson NLC (or that you have issues with your instance), you can keep this supervised and will be asked at each execution. A remark here is that in the current version of the code, even though one sentence at least was classified as relevant for MANA by Watson Assistant, the article is still sent to Watson NLC. In fact, it still allows to compare the results. As explained previously, Watson NLC classification on the whole text is still expected to be more coarse than Watson Assistant sentence by sentence classification. This is implicitly why Watson NLC was kept for now only in last resort, in case Watson Assistant did not keep any sentence. Still, checking what is Watson NLC response even though Watson Assistant has already determined (with expected more reliability) that the article was relevant – as one sentence at least was – is very interesting to assess the performance of Watson NLC. As there starts to be more and more agreement between Watson NLC and Watson Assistant, it means the Watson NLC converges towards a good training, and that overall the solution is gaining consistency.
+5)	Store the article in the ad hoc file or not if relevant 
+6)	Store the article in the ad hoc file or not if NOT relevant
+
+Those settings have meaning in that you might want just to experiment on a list of articles without saving them. In that case the execution will still tell you what success rate in classification it achieved, but no articles will have been stored.
+7)	How many keywords (extracted by NLU) to send for each article. This is a very important setting. The processing time increases linearly with the number of keywords sent. Yet, sending less than 5 keywords would not be accurate enough. An option will be developed soon here to allow the user, in particular in the case when the article is short enough, to send all sentences to Watson Assistant. Those might be less than 10, therefore make it faster than sending the 10 first keywords. Tests will be run for this option.
+Then the execution proceeds accordingly to architecture schema seen previously. Every important operation done is displayed on the terminal so that one can follow even though leaving most steps unsupervised.
 
 ### The end of the execution
 Once all articles have been processed, several important informations are displayed:
@@ -429,10 +430,10 @@ Once all articles have been processed, several important informations are displa
 
 #### Important advice here
 
-when you observe that the ratio if not 100%, the number of the misclassified articles will be indicated. It is probably the case that you left it unsupervised. It is then crucial that you go back to the execution to observe especially for the misclassified articles whether sentences were wrongly classified by Watson Assistant, and wrongly added to the intents for training. When this is the case please go to Watson Assistant intents interface, find back this misclassified sentence (with Ctrl+F) and replace it in the correct intent. This will guarantee that the training is good and that the solution accuracy improves with time.
+When you observe that the ratio is not 100%, the number of the misclassified articles will be indicated. It is probably the case that you left it unsupervised. It is then crucial that you go back to the execution to observe especially for the misclassified articles whether sentences were wrongly classified by Watson Assistant, and wrongly added to the intents for training. When this is the case please go back to Watson Assistant intents interface, find back this misclassified sentence (with Ctrl+F) and move it (in two clicks literally) to the opposite correct intent. This will guarantee that the training is kept correct and consistent and that the solution accuracy improves with time.
 
 #### Personal technique
-In fact, I personally prefer to run the script without supervision very quickly and then check and correct mistakes at the end, from the information of the ratio. This allows you both to estimate how well the solution performs without supervision, and still correct the training if it went wrong. The analogy here would be to teach a kid to walk. Either you keep your hand, supervise each of his steps, either you leave him walk by himself and only help him stand back up when he falls. Here, this amounts to answering “N” to all supervision settings as I did in the demo video above, and then if necessary correcting when the system went wrong afterwards. 
+In fact, I personally prefer to run the script without supervision very quickly and then check and correct mistakes at the end, from the information of the ratio. This allows both to estimate how well the solution performs without supervision, and still correct the training if it went wrong. The analogy here would be to teach a kid to walk. Either you keep your hand, supervise each of his steps, either you leave him walk by himself and only help him stand back up when he falls. Here, this amounts to answering “N” to all supervision settings as I did in the demo video above, and then if necessary correcting when the system went wrong afterwards. 
 
 2)	What were the most recurring keywords associated with sentences classified as relevant in the past execution. This is an interesting information, analogously to the prospection function at the beginning, to make adjustments to the entities of the chatbot.
 
@@ -440,17 +441,19 @@ Finally, the option to retrain Watson NLC (which takes time and can cost 2 euros
 
 ## Is your solution well trained enough ? Ready to deploy it as a Cloud function !
 
-If you consistently observe a ratio of performance that is satisfying even leaving the script run completely unsupervised, above 90% of well classified articles for instance as it was the case with MANA. Then it probably means you are ready to deploy the solution. Now you do not need to prepare articles in an excel file with the 0 or 1 on the left to indicate the correct result of the classification. You can just send the full text in json format to the algorithm, trust that it will correctly classify it, and get back a json with potentially all keywords and relevant sentences highlighted. This is what the Cloud_function_all_in_one.py is currently doing. It is what MANA is currently running. It was deployed on IBM Cloud.
+If you consistently observe a ratio of performance that is satisfying even leaving the script run completely unsupervised, above 80% of well classified articles for instance as it was the case with MANA. Then it probably means you are ready to deploy the solution. Now you do not need to prepare articles in an excel file with the 0 or 1 on the left to indicate the correct result of the classification. You can just send the full text in json format to the algorithm, trust that it will correctly classify it, and get back a json with potentially all keywords and relevant sentences highlighted. This is what the Cloud_function_all_in_one.py is currently doing. It is what MANA is currently running and deployed on IBM Cloud.
+
 I will teach you very soon how to create such an IBM Cloud function. 
+
 Remark: The cloud function keeps training the intents of Watson Assistant without supervision. So it is better to keep an eye every now and then on the interface of Watson Assistant whether no wrong example sentences in the intents start appearing, to correct those. 
 
 ## How to adapt the script to create your own “Watson for good” use cases
 
 Essentially, you may have already understood that whichever the type of information you consider relevant, you can without any problem reuse this architecture. 
 
-All you need to do is to adapt the entities to your subject by filling the type of keywords you absolutely do not want to miss, and also delete past example sentences of the intents in Watson Assistant skill MANA orchestrator (keep it in that it has the righ dialog flow).
+All you need to do is to adapt the entities to your subject by filling the type of keywords you absolutely do not want to miss, and also delete past example sentences of the intents in Watson Assistant skill MANA orchestrator (still keep it as it has the right dialog flow).
 
-Then fill an excel file with your own articles, full text on the left column and on the right column 0 or 1 (for the first phase locally without deploying) cloud function. 
+Then fill an excel file with your own articles, full text on the left column and on the right column 0 or 1 (for the first phase locally without deploying), and then when happy with the performance, deploy it to a cloud function. 
 
 You will realise how fast you can train and get some accurate results on your own subjects !
 
@@ -458,7 +461,7 @@ You will realise how fast you can train and get some accurate results on your ow
 
 ### The "easy but limited" way
 
-To visualize the final result, you can either use the vba macro from the excel file "Visualisation Articles Watson for MANA.xlsm. In fact by running the macro "load MANA articles", activated by the shortcut Ctrl + Shift + L, all articles which are stored in your .tsv files will be loaded and displayed in neat formatted columns. Important for the macro to work is that the excel file is in the same folder as your .tsv files.
+To visualize the final result, you can either use the vba macro from the excel file "Visualisation Articles Watson for MANA.xlsm". In fact by running the macro "load MANA articles", activated by the shortcut Ctrl + Shift + L, all articles which are stored in your .tsv files will be loaded and displayed in neat formatted columns. Important for the macro to work is that the excel file "Visualisation Articles Watson for MANA.xlsm" is in the same folder as your .tsv files.
 
 ### The "harder but nicer" way
 
@@ -470,24 +473,25 @@ Watson Studio is platform that has plenty to offer to data scientists, from data
 
 Analogously to what we did above with other Watson modules, on the "AI" section of the "Catalog" of your IBM Cloud account, you can create an instance of Watson Studio and then click on `Get started`.
 
-#### How does it look then ?
+#### How does the final result look then ?
 
 In fact, as you can observe in the video below, which shows the process to do so, you will be able through this notebook to recover the full texts with relevant sentences and keywords highlighted directly (instead of stored in separate columns in the excel files).
- An additional advantage allowed by this display noebook is the scroll down that allows you to only see the full texts of the articles you are interestes in, and not necessarily all texts as in Excel.
+ An additional advantage allowed by this display noebook is the scroll down that allows you to only see the full texts of the articles you are interested in, and not necessarily all texts as in Excel.
  
 [![](Images/Notebook_display.png)](https://www.youtube.com/watch?v=pxZzA1taipc)
 
 
 ## Conclusion
 
-As you were hopefully able to experiment by yourself, the solution performance, speed of training, and flexibility was achieved by leveraging in a complex architecture several Watson modules.
+As you were hopefully able to experiment by yourself, the solution performance, speed of training, and flexibility was achieved by leveraging a complex architecture several Watson modules.
+
 Not only has it answered the initial challenge of classifying with accuracy text articles, it is also capable of directly indicating in the classified text where are the sentences containing relevant information.
 
 This enables saving time for MANA to supervise and check that the articles were correctly classified, and to the end user of this information who can also directly go to the point.
 
 ## Improvements to come
 
-Several additional Watson services could be plugged to the current solution to improve its features and efficiency.
+Several additional Watson services could be plugged to the current solution to perfect its features and efficiency.
 
 ### Watson Knowledge Studio
 
@@ -495,23 +499,24 @@ An additional capability named Watson Knowledge Studio (WKS) could be plugged at
 
 ### Watson Discovery Service
 
-WDS is in short a search engine (like Google’s famous one for instance) on your own data that you store. In particular, plugging it could help searching efficiently in the training example sentences of the intents of Watson Assistant. If you quickly want to do a specific search, on a location, on a company, on anything really in the sentences classified as relevant, then WDS would be particularly easy to implement (a matter of few minutes to code). 
+WDS is in short a search tool on your own data that you store. In particular, plugging it could help searching efficiently in the training example sentences of the intents of Watson Assistant that essentially have stored all the most relevant sentences. If you quickly want to do a specific search, on a location, on a company, on anything really in the sentences classified as relevant, then WDS would be particularly easy to implement (a matter of few minutes to code). 
 
 ### Watson Openscale
 
-Watson Openscale is able to be plugged on blackbox models and give elements of explanation on their behaviour. In particular, on a raw text, Openscale can determine which words made the black box model opt for a specific class or another.  This would therefore be a great way to assess how our NLC, which is essentially a black box raw text classifier, is performing - in order to know how much we can trust it. It should be borne in mind though that, conversely to the training sentences of the intents in Watson Assistant which can be removed if we notice that they were misclassified, we could not (even with Watson Openscale plugged explaining the classification) correct so easily the blackbox NLC.
+Watson Openscale is able to be plugged on blackbox models and give elements of explanation on their behaviour. In particular, on a raw text, Openscale can determine which words made the black box model opt for a specific class or another.  This would therefore be a great way to assess how our last resort NLC, which is essentially a black box raw text classifier, is performing - in order to know how much we can trust it. It should be borne in mind though that, conversely to the training sentences of the intents in Watson Assistant which can be removed if we notice that they were misclassified, we could not (even with Watson Openscale plugged explaining the classification) correct so easily the blackbox NLC.
 
-In the particular case of Watson NLC, a technical specification limits its relevance: only the first 1000 characters of the raw text of the article can be ingested as an training example for the class.
+In the particular case of Watson NLC, a technical specification truly limits its relevance: only the first 1000 characters of the raw text of the article can be ingested as an training example for the class.
 
-Thus, to be able to ingest the full article text, it may be relevant to experiment with implementing state of the art open source libraries for Random Forest classification, or Convolutional Neural Network.
-IBM very recently released NeuNetS, a Convolutional Neural Network synthesizer, which could also be tested in that case.
+Thus, to be able to ingest the full article text, it will be relevant to experiment with implementing state of the art open source frameworks for natural classification models.
+
+IBM very recently released NeuNetS, a Convolutional Neural Network synthesizer, which may also be relevant to test in that case.
 
 ### Development of an OpenSource NLC model
 
-Alexandre Berthet, data scientist at IBM, and I, will explore the implementation of an OpenSource NLC model that is hoped to overcome some previously alluded limitations of Watson NLC. In particular, the Tech for Good enthusiasts community will be sollicited for that purpose.
+We will explore the implementation of an OpenSource NLC model that is hoped to overcome some previously alluded limitations of Watson NLC with a team from the Tech for Good enthusiasts community !
 
 ## Acknowledgments
 
-On IBM side, great thanks to Ramzi ben Ouaghram and Vincent Perrin, respectively boss and mentor, for allowing me to get involved in the project. Great thanks as well to colleague and friend Alexandre Berthet who has been essential in supporting the deployment of the CLoud function of this solution, and who is already anticipating next steps of the improvement to bring the solution to the next level.
+On IBM side, great thanks to Ramzi ben Ouaghram and Vincent Perrin, respectively boss and mentor, for allowing me to get involved in the project. Great thanks as well to colleague and friend Alexandre Berthet who has been essential in supporting the deployment of the Cloud function.
 
 On MANA side, thanks to Gabrielle Garmier and Capucine Lebois - with her positive smile :) - for their energy and pedagogy in collaborating to design and implement this solution together. Thanks to the founder of MANA, Kiti Mignotte, for her encouragement and support since our first encounter.
