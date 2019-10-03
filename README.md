@@ -115,7 +115,7 @@ To answer with anticipation, the final solution implemented with Watson:
 
 ### Preamble
 
-If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear readily understandable. In that case, I invite you either to consult the [PPT on the rationale](MANA_rationale.pptx)  which introduces each module and the terms/vocabulary associated to it, or the following sections which explain briefly what each module is capable of doing before guiding you practically with creating your own instances to be ble to run the script.
+If you are not already ackowledged with Watson modules, the following explanation of the architecture will not already appear readily understandable. In that case, I invite you either to consult the [PPT on the rationale](MANA_rationale.pptx)  which introduces each module and the terms/vocabulary associated to it, or be introduced through the following sections which explain briefly what each module is capable of doing before guiding you practically in creating your own instances to be able to run the script.
 
 ### The architecture
 
@@ -125,32 +125,34 @@ This algorithm architecture was specifically tailored for MANA in order to class
 
 ![schema_architecture](Images/Schema_principe.png)
 
-If you are interested in the underlying reasoning that led to this final algorithm, please look at the Power Point that details the genesis of ideation process and trials that allowed to eventually reach, after several adjustments, that final architecture.
+If you are interested in the underlying reasoning that led to this final algorithm, I refer you again to the [PPT on the rationale](MANA_rationale.pptx) which details the genesis of the ideation process and trials that allowed to eventually reach, after several adjustments, this specific final architecture.
 
 ### Verbose Explanations of the big steps of the algorithm & the justification of the architecture
 
 First and foremost, the raw text of the article is translated to English if necessary and sent to NLU.
 
-Two basic primary filters are applied there from information extracted by NLU not to discard the article as irrelevant:
-a company must have been detected and the overall sentiment (a pondered score of several tone indicators) must be negative.
+Two basic primary filters are applied there from the information extracted by NLU to determine whether to discard directly the article as irrelevant:
+1) A company must have been detected 
+2) The overall sentiment (a pondered score of several sentiment indicators) must be negative.
 
 Then, one by one all the keywords extracted from NLU are sent to Watson assistant.
-In fact, as detailed in the PPT, a thorough preliminary study showed that the keywords were the most relevant information to get from NLU treatment of the article in the case of MANA.
+In fact, as detailed in the [PPT on the rationale](MANA_rationale.pptx), a thorough preliminary study showed that the keywords were the most relevant information to get from NLU treatment of the article in the case of MANA.
 
-Watson Assistant needs very little initial training (a matter of 5 minutes really) to be told some critical entities to detect : e.g. « deforestation », « palm oil expansion », etc…
+Watson Assistant needs very little initial training (a matter of 5 minutes really) to be told some elementary rules : the critical entities to detect e.g. « deforestation », « palm oil expansion », etc…
 
-Thus when Watson Assistant receives those keywords from Watson NLU, if a critical entity is recognised, it finds back the sentence(s) containing it. There are two possibilities : the sentence containing it in the article is either relevant/interesting for MANA, as e.g. : « Company X was accused of deforestation » or not relevant for MANA : « Company Y engaged against deforestation ».
+Thus when Watson Assistant receives those keywords from Watson NLU, if a critical entity is recognised, it finds back the sentence(s) containing it in the original articles. From there, there are two possibilities : the sentence containing it in the article is either relevant/interesting for MANA, as e.g. : « Company X was accused of deforestation » or not relevant for MANA : « Company Y engaged against deforestation ».
 
-This classification per say of the meaning is therefore performed by the intent, which is the NLC of the chatbot.
+This classification per say of the meaning is therefore performed by the intent, which is the classifier (NLC) of the Watson Assistant (synonymous of "chatbot").
+
 To rephrase it, when the keyword « deforestation » is sent from NLU and recognised as an entity by Watson Assistant, all sentences from the article containing “deforestation” are sent to be classified by the intent (NLC) as relevant or non relevant.
 
-Now, for the very first few sentences, the intent is not trained yet, so human supervision helps classify the sentences containing “deforestation” in the article to train the intents « relevant » or « not relevant ». But as very few phrases are classified, the intents are able to recognize the sentences by themselves without the need for human confirmation.
+At the real beginning, when the intents are not trained yet, the algorithm does ask during execution for some initial human supervision to help classify those very first few sentences containing “deforestation” in the article, in order to train the intents « relevant » or « not relevant ». But as very few phrases are classified, the intents are then able to recognize the sentences by themselves without the need for human confirmation, although supervision is encouraged to ensure this early autonomous classification is correct.
 
 #### Why is this two-fold classification process with Watson Assistant convenient and powerful ?
 
 This way of proceeding facilitates and hence speeds ups the training phase in that there is no need to ingest a previously labelled dataset. We can directly start with the articles at hand and are only asked to classify initially few sentences which contain words that we have filtered (through critical/alerting entities) to be interesting. 
 
-Furthermore, these two layers (entity detection and confirmation by the intent of the relevance of the sentence containing it) allows for **future reliable unsupervised continuous learning : the intents training being by this process really fine tuned, when a new sentence containing an alerting entity – deforestation in our case – is detected, we can let with little risk this sentence be added as a training example sentence of the intent.**
+Furthermore, these two layers (entity detection and confirmation by the intent/class of the relevance of the sentence containing it) allows for **future relatively reliable unsupervised continuous learning : the intents training being by this process quite fine tuned, when a new sentence containing an alerting entity – deforestation in our case – is detected, we can let with little risk this sentence be added as a training example sentence of the intent.**
 
 In any case, if ever one sentence was classified in the wrong class, it is very easy through the lean graphical interface of Watson Assistant to detect it and delete it from the training examples.
 
@@ -158,67 +160,75 @@ This flexibility and easy monitoring of the training is why we chose Watson Assi
 
 #### The trick: not only entities can be detected at first by Watson Assistant
 
-This architecture allows to implement a feature that becomes very advantageous : as the intents training is sufficient, they can start to recognize directly the keywords. In fact, say e.g. that many training sentences in the intents contain the mention of the “Indonesian rainforest”. Then it is very likely that if a keyword sent from NLU is « Indonesian » or « rainforest », which were not previously defined as alerting entities, it will be detected directly by the intents although it did not trigger entities detection.
-The whole process is in this case be repeated: the sentences in the article containing indonesian or rainforest are sent again to those same intents for classification, to determine whether the whole sentence is relevant or not. This situation frequency will significantly increase (as opposed to mere alerting entity detection) as the intents get more and more trained.
+This architecture allows to implement a feature that becomes very advantageous : as the intents training is sufficient, they start to be directly triggered by the keywords. In fact, say e.g. that many training sentences in the intents contain the mention of the “Indonesian rainforest”. Then it is very likely that if a keyword sent from NLU is « Indonesian » or « rainforest », which were not previously defined as alerting entities (as deforestation), it will be detected directly by the intents although it did not trigger entities detection.
+In this case, the whole process is repeated: the sentences in the article containing "indonesian" or "rainforest" are sent again to those same intents for classification, to determine whether the whole sentence is relevant or not. This situation frequency increases significantly (as opposed to mere alerting entity detection) as the intents get more and more trained.
 
 Therefore, this combined use of the top performing AI bricks of Watson : namely keywords extraction from NLU plugged to an astute two fold classification by Watson Assistant, allows for a very fast training, which can moreover reliably be left to autonomous continuous learning, and overall easily monitored through Watson Assistant very practical user interface.
-To rephrase in other words the strengths of the architecture of MANA text classification algorithm: keywords extraction (50 keywords are generated for an average three pages long article) allows efficient extraction of the main articles information, while Watson Assistant allows to keep the fine tuning of a sentence by sentence final classification (with an interesting control through the filter of entities).
+
+Let's rephrase in other words the strengths of the architecture of MANA text classification algorithm: 
+keywords extraction (50 keywords are generated for an average three pages long article) allows efficient extraction of the main articles information, while Watson Assistant allows to keep the fine tuning of a sentence by sentence final classification (with an interesting control through the filter of entities).
 
 #### Supervision
 
-All steps in the previously explained algorithm can be supervised or left unsupervised during execution:
+All steps in the previously explained algorithm can be supervised or left unsupervised as it starts during execution by:
 - Asking when an entity is detected whether it is relevant to do so. 
 - Asking whether a sentence was correctly classified by the intents. 
 - Asking whether the intent should be trained or not with this last classified sentence
 
-There are on this first part of the algorithm possible fine tuning coming from a more extensive use of the information provided by NLU treatment of the article, especially true for the ordering of the relevant articles.
-
-Namely, through testing phases it is possible to determine and adjust the weight to give to the emotions and sentiment, and to the « Company » entity detected at first as well. Also, the author/source might receive a weight, as well as possibly the confidence score of the enrichment.
+There are on this first part of the algorithm possible fine tuning improvements coming from a more extensive use of the information provided by NLU treatment of the article, which is especially true for the final ordering of the relevant articles kept in their priority ranking.
+Namely, through tests it is possible to determine and adjust for this priority ranking the weights to give to the sentiment scores of the relevant sentences classified, and to the « Company » entity detected at first as well. Also, possible ideas to explore are to attribute a weight to the author/source.
 
 Those are all very straightforward adaptations to make to the algorithm but take time to be tested for efficiency improvement. This is basically be an empiric fine tuning of parameters through testing.
 
 All these parameters have to be given a weight to order the article.
-Should the ordering be mostly based on ?
-1.	how many sentences in total in the article were classified as relevant
+
+Should the final priority ordering be mostly based on ?
+1.	How many sentences in total in the article were classified as relevant
 2.	What were the emotion score attributed by NLU attached to the keywords in sentences classified as relevant
 3.	The author source
 4.	The location… (the location and company could also easily help to store the whole article in different files)
-A weighted average of all of these probably, to determine through testing.
+
+A weighted average of all of these probably, to determine through testing...
+
+Or those weights could be dynamically updated as a human supervises and reorders manually the final list proposed. The weights would adjust automatically to be able to account for this ordering (as well as the past ones).
 
 #### Overcoming the limitations of Watson Assistant entities
 
-There are functions allowing to report the keywords that appeared most frequently in some articles in prospection, and as well systematically in the articles which have already been treated, so that the filter of alerting entities can be manually fine tuned in the light of those suggestions.
+Here I will explain some additional functions implemented to allow to report the keywords that appeared most frequently in some articles in prospection, as well as systematically in the articles which have already been treated, to help the filter of alerting entities to be (manually) fine tuned in the light of those suggestions.
 
 #### Why ? 
 
 In fact, one limitation in the keyword recognition by Watson Assistant is that alerting entities have to be pre-filled manually (on Watson Assistant interface) by the user. Those manually informed alerting entities aim to make sure 100% not to miss those words like deforestation, environmental destruction, etc... 
 
-To compensate for the fact that the user may not be able to guess all relevant keywords to fill as alerting entities (to make sure 100% not to miss those words, like deforestation, environmental destruction, etc...) on a given set of articles, a prospection function was added. This prospection function treats all articles and informs back of the most recurring keywords, as a suggestion for the user who might recognise some relevant keywords to be added. 
-This function is all the more useful when alerting entities are within one field, for instance the theme of deforestation and all its synonyms. Then when a new set of articles of another field are to be treated, for instance about river pollution, the user cqn leverage this prospection of keywords of the new articles to be given suggestions of the relevant alerting entities to add.
+To compensate for the fact that the user may not be able to guess all relevant keywords to fill as alerting entities on a given set of articles, a prospection function was added. This prospection function treats all articles and informs back of the most recurring keywords, as a suggestion for the user who might recognise some alerting entities to be added. 
 
-Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This also allows the user to make observations about the alerting entities which are most relevant to keep in that they were most sollicited.
+This function is all the more useful when alerting entities are within one field, for instance the theme of deforestation and all its synonyms. Then when a new set of articles of another field are to be treated, for instance about river pollution, the user can leverage this prospection of keywords of the new articles to be given suggestions of the relevant alerting entities to add that he may not have anticipated.
 
-#### Conclusion of this first part (the loop on the diagram): the power of sentence by sentence classification
+Likewise at the end of the execution, all keywords associated to sentences which have just been classified and stored as relevant for MANA, are displayed. This also allows the user to make observations about the alerting entities which are the most relevant to keep in that they were the most frequent in sentences classified as relevant.
 
-The result of this first treatment is that all relevant sentences in the article are stored and localized, which is far better than just classifying the entire article.
+#### Conclusion of this first part (the green box of the "loop for each keyword" on the diagram): the power of sentence by sentence classification
+
+The result of this first treatment is that all relevant sentences in the article are stored and localized, which is a more interesting outcome than just classifying the entire article.
 
 #### Watson independent NLC model in last resort
 
-Yet, because it is possible that the keywords identified by NLU from the article do not trigger any alerting entity or intent detection from Watson assistant, the algorithm leverages the power of a pure NLC capability, simply through the API of Watson NLC service.
+Yet, considering the scalability but also because it is possible that the keywords identified by NLU from the article do not trigger any alerting entity or intent detection from Watson assistant, the algorithm leverages the power of a pure NLC capability through the API of Watson NLC service.
 
-Watson NLC service is trained with all the example sentences in the intents of Watson Assistant (which are very accurate relevant sentences, hence of great training value), but also with the full raw text of the article already classified. By very essence of neural networks, its training is long and not practical to update nor monitor.
+Watson NLC service is trained with all the example sentences in the intents of Watson Assistant (which are very accurate relevant sentences, hence of great training value), but also with the full raw text of the article already classified. This redundance between the relevant sentences taken from the intents and the full articles contents already containing them, helps "guide the model" towards learning what really makes an article relevant. Watson NLC promises better scalability and performance by essence of its neural network structure, but its costly training and practical difficulty to retrain, update nor monitor, limits its performance.
 
-However, it is hoped to be more powerful when scaling, allowing to classify a whole unstructured text with more accuracy (through the multiple correlations it can draw with its training datasets) than Watson Assistant NLC. But its classification is expected to remain quite coarse compared to the sentence by sentence one of NLU + Watson Assistant.
+However, neural network NLC models can be expected to be more powerful when scaling, allowing to classify a whole unstructured text with more accuracy (through the multiple correlations it can draw with its training datasets) than the embedded classifier in Watson Assistant through its intents. 
 
-In fact, it is essentially a black box: the correlations it draws from its training data to classify the raw text of the article as relevant or not can sometimes be extremely powerful or completely absurd, without us really knowing a priori.
+As of the current situation, the classification of Watson NLC is quite coarse compared to the sentence by sentence one of NLU + Watson Assistant. In fact, it behaves essentially as a black box: the correlations it draws from its training data to classify the raw text of the article as relevant or not can sometimes be extremely powerful or completely absurd, without us really knowing a priori.
+Furthermore, until a substantial size of the training dataset is reached, its performance remains very limited.
 
 
 #### Conclusion on the architecture
 
-As a conclusion, it is important to note that the tailored orchestration of NLU + Watson Assistant and the black box NLC approach are not in competition, they are complementary:
+As a conclusion, it is important to note that the tailored orchestration of NLU + Watson Assistant and the black box NLC approach are not in competition, they are completely complementary:
+
 NLU + Watson Assistant are fine tuned filters, able to detect relevant sentences. But even though they do not detect any, the entire article is in last resort sent to the black box NLC.
 
-This black box NLC can be trained from scratched with raw text of all already classified articles. We can be legitimately be optimistic that in the long term it will start performing very well, having in the meantime benefitted strongly from the highly relevant training sentences of the intents of Watson Assistant.
+This black box NLC can be trained from scratch with raw text of all already classified articles. We can be legitimately be optimistic that in the long term it will start performing very well, having in the meantime benefitted strongly from the highly relevant training sentences of the intents of Watson Assistant.
 
 
 ## Step by step guide to run the script
@@ -244,11 +254,12 @@ In short, this module allows you to extract metadata, as attributes and indicato
 - Syntax
 - Semantic Roles
 
-Please consult the [demo page here](https://natural-language-understanding-demo.ng.bluemix.net/) to visualise by yourself what Watson NLU is capable of doing.
+Please consult the [demo page here](https://natural-language-understanding-demo.ng.bluemix.net/) to quickly explore and visualise by yourself what Watson NLU is capable of doing.
 
 ### How to create your own Watson NLU instance
 
 Once you are logged in your IBM account, click on "Catalog" and the "AI section".
+
 Scroll down to Naural Language Understanding and, after having set the region to deploy your service (Frankfurt in my case) you click on Create.
 
 Now that you just created your instance, click on Manage and you can already copy the API Key and replace the appropriate field in the file Instances_Watson_modules.py. 
@@ -265,8 +276,8 @@ naturalLanguageUnderstanding = NaturalLanguageUnderstandingV1(
 
 ## Watson Assistant
 
-Watson Assistant is one of the most advanced chatbots module out there, being leveraged an enormous range of clients worldwide.
-I encourage you to learn how to design and run your own chatbot in few minutes with this [very practical and fast tutorial](https://cognitiveclass.ai/courses/how-to-build-a-chatbot/)
+Watson Assistant is one of the most advanced chatbots module out there, being leveraged by an enormous range of clients worldwide.
+I encourage you to learn how to design and run your own chatbot in few minutes with this [very practical and fast tutorial](https://cognitiveclass.ai/courses/how-to-build-a-chatbot/) .
 
 #### Side note for those still wondering why we use Watson Assistant for this classification problem ?
 
@@ -274,9 +285,11 @@ Watson Assistant is generally used for building chatbots. However, it can be use
 
 It also incorporates an exact word detection of so called « entities ».
 
-The intents work essentially as NLC, namely they are able to classify new formulations of a sentence by extrapolating from previous training sentences with similar meaning. Watson has indeed been trained on thousands of articles in the web, among which many wikipedia articles. The entity are not NLC but just exact word recognition.
+The intents work essentially as a classifier, namely they are able to recognize the intentions/meaning of a new sentence by extrapolating from previous training sentences with close meaning. Watson has indeed been trained on thousands of articles in the web, among which many wikipedia articles. 
 
-What makes Watson Assistant an extremely interesting fundamental brick to leverage is that it is one of the best performing assets in the market. The intent classification (NLC) is very competitive (with an aggressive roadmap of improvements as the product is sold massively to demanding clients worldwide, corporations and startups) and it is very well embedded in a graphical user interface allowing to easily monitor the example sentences to train the intents and entities.
+The entities are not classifiers but just an exact word recognition.
+
+What makes Watson Assistant an extremely interesting fundamental brick to leverage is that it is one of the best performing assets in the market. The intent classification is relatively very competitive (with an aggressive roadmap of improvements as the product is sold massively to demanding clients worldwide, corporations and startups) and it is very well embedded in a graphical user interface allowing to easily monitor the example sentences to train the intents and entities.
 
 
 ## How to create your own Watson Assistant instance
@@ -298,6 +311,7 @@ I invite you then to click on "create skill" and then "import skill".
 ### Import the MANA Orchestrator skill
 
 For this project I invite you to import as a starting point the skill MANA_orchestrator.json. It has the right dialog structure, intent and entities definition and it was already trained with about 300 examples per intent. 
+
 You are evidently welcome to make your own modifications to it.
 
 Then click on Skills above and you should visualise your new imported skill called MANA orchestrator. Please click on the three vertical dots, 'view API details'. You shall then copy the workspace-id credentials and replace in the file Instances_Watson_modules.py the 'xxx' in the line:
@@ -307,6 +321,8 @@ Then click on Skills above and you should visualise your new imported skill call
 ### A Video to guide you in case
 
 Hopefully, the video below should help you in the steps explained before of importing the skills. It also shows you a little exploration of the intents, entities, the dialog, and makes a little test to show you what are MANA Orchestrator responses according to the input.
+
+Don't forget that Watson Assistant is here directly interfaced with the algorithm, such that the above demo shown where a user types in sentences to the "Try it" chatbot interface to explore its responses, is quite artificial.
 
 [![](Images/Assistant.png)](https://youtu.be/VR6GGreDdQ8)
 
@@ -324,10 +340,16 @@ natural_language_classifier = NaturalLanguageClassifierV1(
 url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
 ```
 
+Update note: IBM has removed the Lite Free plan for Watson NLC.
+Therefore, if you do not have access to credentials and do not want to pay, I invite you to slightly alter two parts of the Main_Watson_for_MANA.py executable file:
+1) Remove line 14: `natural_language_classifier=Instances_Watson_modules.natural_language_classifier`
+2) Correct line 276 by replacing `if NLC=="Y":` by e.g. `if NLC=="Never"`, and obviously not typing "Never" when asked if you want to send the article to NLC. 
+
 
 ## Watson Translator
 
 No need to explain hopefully what the translator does. We will need it to treat articles from 80 languages for MANA ! 
+
 Again same process, just create an instance and copy your own API Key (and url if it differs) instead of 'xxx' (keep quotes around) in the lines below in the file Instances_Watson_modules.py:
 
 ```
@@ -340,30 +362,30 @@ iam_apikey='xxx'
 
 ## How to run the script
 
-Now that you have updates the file Instances_Watson_modules.py with your own credentials (API Keys for each module instance), you are ready to run the script !
+Now that you have updated the file Instances_Watson_modules.py with your own credentials (API Keys for each module instance), you are ready to run the script !
 
 **I suggest you start by running it locally. This is easier and allows to assess the results of the solution by yourself.**
 
-Once you understand how the script works and trust its performance, I will invite you to run a much more compact version directly on IBM Cloud, through what is called a "Cloud function". This is what MANA Vox is currently doing.
+Once you understand how the script works and trust its performance and have been able to train Watson Assistant intents well enough, I will then invite you to run a much more compact version directly on IBM Cloud, through what is called a "Cloud function". This is what MANA Vox is currently doing.
 
 ### How to run the script locally on your machine
 
 1) Install a Python interpreter if not already the case (Anaconda will do great, and includes the Spyder IDE which comes handy)
 2) Install Watson packages by running on the terminal (command line called cmd on Windows): `pip install --upgrade ibm-watson (or on windows: py -m pip install ibm_watson)`
 3) Save the three scripts called  `Main_Watson_for_MANA.py`, `Functions_Watson_for_MANA.py` and obviously `Instances_Watson_modules.py` which you have already been filling with your credentials, in the same folder, along with the excel file `file_articles.xls` containing the articles to be treated.
-4) in the terminal run the script with the command:
+4) Run the script in the terminal with the command:
 
 On Linux and MacOS: `python Main_Watson_for_MANA.py`
 
 On Windows: `py Main_Watson_for_MANA.py`
 
-5) In case you want to stop the script before the end of its execution, type `Ctrl+C` as the scrit is running on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files `Oui_MANA_articles.tsv` and `Non_MANA_articles.tsv` (which will have been created during the first execution if they were not already present, or updated with the new articles they already existed and stored articles classified in the past).
+5) In case you want to stop the script before the end of its execution, type `Ctrl+C` or `Cmd+C` while the script is running on the terminal. All information from articles that had already been processed until that point will then be stored (without any loss) in the appropriate files `Oui_MANA_articles.tsv` and `Non_MANA_articles.tsv` (which will have been created during the first execution if they were did not exist yet, or updated with the new articles if they were present as they stored articles already classified in the past).
 
 ## Follow the execution
 
-A great care was taken such that all that the script does which is interesting for you to understand and follow, is displayed on the terminal during the execution. 
+A great care was taken such that all that the script is doing which can be interesting for you to understand and follow, is displayed on the terminal during the execution. 
 
-Please click on the laptop below to see a video of a local execution of the script in the terminal of my machine.
+Please click on the laptop below to see a video of a local execution of the script in the terminal of my own machine.
 
 [![classification](Images/Run%20Watson_For_MANA.png)](https://youtu.be/XQkW0PayBgk)
 
@@ -375,18 +397,19 @@ In this execution right above on the video, the prospection function is run with
 
 #### Some more explanations on the input file
 
-If you take a closer look at the input file (file_articles.xls), you will notice that it contains 20 articles (from line 0 to 19) on the first column – named A – and on right next to each article on the B column are Booleans 0 or 1 indicating if the article is relevant or not. This 0 or 1 corresponds to the answer of the correct classification, considered by the human. 
+If you take a closer look at the input file (file_articles.xls), you will notice that it contains 20 articles (from line 0 to 19) on the first column – named A – and on right next to each article on the B column are Booleans 0 or 1 indicating if the article is relevant or not. This 0 or 1 corresponds to the answer of the correct classification, prelabeled by the human. 
 
 ##### Why proceed that way ? (As if it were a test set) 
 
-In order to determine how well it performs of course !
+It's of course a typical test in order to determine how well it performs !
 
-Here, there is no real distinction to be made between training and testing sets. In fact, during the execution, we train the intents of Watson Assistant with relevant sentences from the article, and then finally test if the the final classification of the article concurs with what is correct (relevant or not).
-To refresh your memory, if at least one was classified as relevant for MANA by Watson Assistant, the article is kept relevant, which we compare on column B – which should be 1 for a relevant article.
+Yet here, there is not a clear distinction to be made between training and testing sets. In fact, during the execution, we train the intents of Watson Assistant with relevant sentences from the article, and then finally test if the the final classification of the article concurs with what is correct (relevant or not) as indicated by the boolean on the B column.
+To refresh your memory, if at least one sentence was classified as relevant for MANA by Watson Assistant, the article is kept relevant, which we compare to column B – which should be 1 for a relevant article.
 
 
 ##### Now, let us come back to the execution:
-If/once the prospection is done and the file/cells to be treated is indicated, all supervision settings are asked to be defined by the user.
+
+Once the prospection on keywords is done (if the user wanted to do it as it is optional) and the file & cells to be treated are indicated, all supervision settings are then asked to be defined by the user.
 
 Please come back in the [architecture schema](the-architecture) to red annotated arrows and text to visualize that you have control over:
 
