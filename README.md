@@ -215,7 +215,7 @@ The result of this first treatment is that all relevant sentences in the article
 
 Yet, considering the scalability but also because it is possible that the keywords identified by NLU from the article do not trigger any alerting entity or intent detection from Watson assistant, the algorithm leverages the power of a pure NLC capability through the API of Watson NLC service. Even though NLU + Watson Assistant do not detect any relevant sentences, the entire article is in last resort sent to the black box NLC.
 
-Watson NLC service is trained with all the example sentences in the intents of Watson Assistant (which are very accurate relevant sentences, hence of great training value), but also with the full raw text of the article already classified. This redundance between the relevant sentences taken from the intents and the full articles contents already containing them, helps "guide the model" towards learning what really makes an article relevant. Watson NLC promises better scalability and performance by essence of its neural network structure, but its costly training and practical difficulty to retrain, update nor monitor, limits its performance.
+Watson NLC service is trained with all the example sentences in the intents of Watson Assistant (which are very accurate relevant sentences, hence of great training value), but also with the full raw text of the article already classified. This redundance between the relevant sentences taken from the intents and the full articles contents already containing them, helps "guide the model" towards learning what really makes an article relevant. Watson NLC promises better scalability and performance by essence of its neural network structure, but its costly training and practical difficulty to retrain, update and monitor, limits its performance.
 
 However, neural network NLC models can be expected to be more powerful when scaling, allowing to classify a whole unstructured text with more accuracy (through the multiple correlations it can draw with its training datasets) than the embedded classifier in Watson Assistant through its intents. 
 
@@ -261,7 +261,7 @@ Please consult the [demo page here](https://natural-language-understanding-demo.
 
 Once you are logged in your IBM account, click on "Catalog" and the "AI section".
 
-Scroll down to Naural Language Understanding and, after having set the region to deploy your service (Frankfurt in my case) you click on Create.
+Scroll down to Natural Language Understanding and, after having set the region to deploy your service (Frankfurt in my case) you click on Create.
 
 Now that you just created your instance, click on Manage and you can already copy the API Key and replace the appropriate field in the file Instances_Watson_modules.py. 
 
@@ -295,7 +295,7 @@ What makes Watson Assistant an extremely interesting fundamental brick to levera
 
 ## How to create your own Watson Assistant instance
 
-Analogously to what we did above with Watson Natural Language undesrtanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
+Analogously to what we did above with Watson Natural Language Understanding, on the "AI" section of the "Catalog", you can create an instance of Watson Assistant (in Frankfurt in my case) and copy your API Key, which you can already insert in the file Instances_Watson_modules.py by replacing 'xxx' in the lines below:
 
 ```
 assistant = watson_developer_cloud.AssistantV1(
