@@ -125,7 +125,7 @@ This algorithm architecture was specifically tailored for MANA in order to class
 
 ![schema_architecture](Images/Schema_principe.png)
 
-If you are interested in the underlying reasoning that led to this final algorithm, I refer you again to the [PPT on the rationale](MANA_rationale.pptx) which details the genesis of the ideation process and trials that allowed to eventually reach, after several adjustments, this specific final architecture.
+If you are interested in the underlying reasoning that led to this final architecture, I refer you again to the [PPT on the rationale](MANA_rationale.pptx) which details the genesis of the ideation process and trials that allowed to eventually reach, after several adjustments, this specific final design.
 
 ### Verbose Explanations of the big steps of the algorithm & the justification of the architecture
 
