@@ -119,7 +119,7 @@ If you are not already ackowledged with Watson modules, the following explanatio
 
 ### The architecture
 
-This algorithm architecture was specifically tailored for MANA in order to classify with highest accuracy articles content as relevant/non relevant information. It optimizes the classification by orchestrating efficiently the use of several IBM Watson AI.
+This algorithm architecture was specifically tailored for MANA in order to classify with highest accuracy articles content as relevant/non relevant information. It optimizes the classification by orchestrating efficiently the use of several IBM Watson AI modules.
 
 
 
