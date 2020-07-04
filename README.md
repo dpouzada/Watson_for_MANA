@@ -9,7 +9,7 @@ The specific architecture of this solution tailored for MANA leverages the inter
 
 *Below is a detailed step by step tutorial to invite you to run by yourself this Watson for MANA algorithm. No prior knowledge at all is expected. It is meant to be achievable by anyone as it is fully self explanatory, following the same pedagogical principle than for instance OpenClassroom approach.*
 
-##### (Soon to be) Open sourced !
+##### Open sourced !
 
 Feel free to reuse and adapt this solution to tap into IBM Watson AI processing power within your own field. Create from it your own "Watson for good" use cases to serve purposeful causes, helping tackle other environmental or social challenges.
 
