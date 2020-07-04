@@ -182,15 +182,16 @@ Those are all very straightforward adaptations to make to the algorithm but take
 
 All these parameters have to be given a weight to order the article.
 
-Should the final priority ordering be mostly based on ?
+The question regarding how we give value the information returned by Watson NLU then becomes : what should the final priority ordering be mostly based on ? 
+In the case of MANA the answer was :
 1.	How many sentences in total in the article were classified as relevant
 2.	What were the emotion score attributed by NLU attached to the keywords in sentences classified as relevant
 3.	The author source
 4.	The location… (the location and company could also easily help to store the whole article in different files)
 
-A weighted average of all of these probably, to determine through testing...
+But in your own use case, it can be a specific a weighted average of all of these probably, to determine through testing...
 
-Or those weights could be dynamically updated as a human supervises and reorders manually the final list proposed. The weights would adjust automatically to be able to account for this ordering (as well as the past ones).
+Or another possible option to imagine is that those weights could be dynamically updated as a human supervises and reorders manually the final list proposed. The weights would adjust automatically to be able to account for this ordering (as well as the past ones). This was not implemented yet here.
 
 #### Overcoming the limitations of Watson Assistant entities
 
