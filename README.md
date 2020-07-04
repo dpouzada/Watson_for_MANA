@@ -344,7 +344,7 @@ url='https://gateway-fra.watsonplatform.net/natural-language-classifier/api')
 Update note: IBM has removed the Lite Free plan for Watson NLC.
 Therefore, if you do not have access to credentials and do not want to pay, I invite you to slightly alter two parts of the Main_Watson_for_MANA.py executable file:
 1) Remove line 14: `natural_language_classifier=Instances_Watson_modules.natural_language_classifier`
-2) Correct line 276 by replacing `if NLC=="Y":` by e.g. `if NLC=="Never"`, and obviously not typing "Never" when asked if you want to send the article to NLC. 
+2) Correct line 276 by replacing `if NLC=="Y":` by e.g. `if NLC=="Never"`, and obviously do not type "Never" when asked if you want to send the article to NLC during the execution. 
 
 
 ## Watson Translator
