@@ -1,7 +1,7 @@
 import http.client
 import json 
 
-conn = http.client.HTTPSConnection("f4f42dee.us-south.apiconnect.appdomain.cloud")
+conn = http.client.HTTPSConnection("xxx")
 # Test 1 - Article MANA court
 payload_1 = "{\"text\":\"PepsiCo, Kellogg's slammed for concealing palm oil secrets. Your favourite packet of chips or muesli bar snack could contain palm oil – a $65 billion industry which is destroying rainforests and threatening the survival of orangutan populations. But it is impossible for consumers to know for certain because popular brands such as PepsiCo (Doritos, Twisties) and Kellogg’s (Cornflakes, Nutri Grain) have refused to reveal to The New Daily which of their products contain palm oil. Environmental advocacy body Greenpeace released a report this week revealing that half of 16 companies that pledged in 2010 to eliminate deforestation from palm oil by 2020 had failed to disclose where they source their palm oil almost 10 years later.\"}"
 
@@ -45,7 +45,7 @@ for payload in [payload_1, payload_2, payload_3, payload_4, payload_5, payload_6
     data = res.read()
     # Si le statut de la réponse est négatif (!=200)
     if res.status != 200:
-        conn = http.client.HTTPSConnection("f4f42dee.us-south.apiconnect.appdomain.cloud",timeout=45)
+        conn = http.client.HTTPSConnection("xxx",timeout=45)
         # On split notre texte en phrase
         tmp = payload.split('.') 
         # On enlève le dernier élément correspondant à ' "} '
