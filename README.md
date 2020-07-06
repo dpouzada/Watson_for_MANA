@@ -76,7 +76,7 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
 
-Please visit their [website here](https://www.mana-vox.org/) !
+Please learn more about MANA [here](https://www.solutions-numeriques.com/temoignage-comment-mana-vox-a-rallie-watson-a-la-cause-ecologiste/) !
 
 ##### How to achieve this goal ?
 
