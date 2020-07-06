@@ -2,7 +2,7 @@
 
 ![](Images/Presentation.png)
 
-**Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations.  With little initial training (about 100 articles), a result of more than 80% of correct classification was achieved on test datasets.**
+**Watson AI modules help MANA process thousands of articles to track and assess environmental impact of corporations.  With little initial training (about 100 articles), a result of 85% of correct classification was achieved on test datasets.**
 
 ##### How ? 
 The specific architecture of this solution tailored for MANA leverages the interplay of Watson modules to achieve this optimized accuracy.
@@ -76,7 +76,7 @@ Feel free to reuse and adapt this solution to tap into IBM Watson AI processing 
 
 MANA Vox aspires to be the First citizen platform to collect and valorize data assessing the impact of businesses/corporations on the environment on a global scale. 
 
-Please learn more about MANA [here](https://www.solutions-numeriques.com/temoignage-comment-mana-vox-a-rallie-watson-a-la-cause-ecologiste/) !
+Please learn more about this use of Watson by MANA through the Press [here](https://www.solutions-numeriques.com/temoignage-comment-mana-vox-a-rallie-watson-a-la-cause-ecologiste/) !
 
 ##### How to achieve this goal ?
 
