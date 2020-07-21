@@ -1,4 +1,4 @@
-#          Machine Learning used to preserve the Environment
+#          Machine Learning used to protect the Environment
 
 ![](Images/Presentation.png)
 
